@@ -18,12 +18,12 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://novaritualsbeauty.com'),
   title: 'NOVA RITUALS | Reset Your Nervous System',
-  description: 'The skincare ritual to reset your nervous system. Discover MindSerum™ and Ritual Mist - neuro-calming skincare that brings calm to your skin and clarity to your mind.',
+  description: 'The skincare ritual to reset your nervous system. Discover MindSerum™ and Ritual Mist™, neuro-calming skincare that brings calm to your skin and clarity to your mind.',
   keywords: ['skincare', 'wellness', 'stress relief', 'nervous system', 'self-care rituals', 'neuro-calming', 'mindfulness'],
   authors: [{ name: 'Nova Rituals' }],
   openGraph: {
     title: 'NOVA RITUALS | Reset Your Nervous System',
-    description: 'The skincare ritual to reset your nervous system. Join the waitlist for MindSerum™ and Ritual Mist.',
+    description: 'The skincare ritual to reset your nervous system. Join the waitlist for MindSerum™ and Ritual Mist™.',
     url: 'https://novaritualsbeauty.com',
     siteName: 'Nova Rituals',
     images: [

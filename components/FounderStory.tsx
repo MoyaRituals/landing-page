@@ -27,7 +27,7 @@ export default function FounderStory() {
 
             {/* Content Side */}
             <div>
-              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-nova-charcoal mb-6">
+              <h2 className="font-heading text-3xl sm:text-4xl font-bold text-nova-charcoal mb-6 text-balance">
                 From Stress to Serenity
               </h2>
               <div className="space-y-4 font-body text-base text-nova-charcoal/80 leading-relaxed">

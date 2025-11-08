@@ -40,13 +40,14 @@ export default function Hero() {
           </p>
 
           {/* Headline */}
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-nova-charcoal mb-6 leading-tight">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-nova-charcoal mb-6 leading-tight text-balance">
             {BRAND_TAGLINE}
           </h1>
 
           {/* Subheadline */}
-          <p className="font-body text-lg sm:text-xl md:text-2xl text-nova-charcoal/80 mb-12 max-w-2xl mx-auto">
-            Discover MindSerum™ and Ritual Mist—neuro-calming skincare that brings calm to your skin and clarity to your mind.
+          <p className="font-body text-lg sm:text-xl md:text-2xl text-nova-charcoal/80 mb-12 max-w-2xl mx-auto text-balance">
+            Discover MindSerum™ and Ritual Mist™{' '}
+            <span className="inline-block">neuro-calming skincare</span> that brings calm to your skin and clarity to your mind.
           </p>
 
           {/* CTA */}

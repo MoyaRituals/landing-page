@@ -60,7 +60,7 @@ export default function EmailSignupForm() {
         >
           {!success ? (
             <>
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4 text-balance">
                 {variant === 'A' ? 'Join the Waitlist' : 'Preorder Your Ritual System'}
               </h2>
               <p className="font-body text-lg text-nova-charcoal/70 mb-8">

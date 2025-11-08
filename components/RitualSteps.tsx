@@ -14,7 +14,7 @@ export default function RitualSteps() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4 text-balance">
             Your 3-Minute Ritual
           </h2>
           <p className="font-body text-lg text-nova-charcoal/70">

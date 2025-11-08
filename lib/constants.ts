@@ -48,7 +48,7 @@ export const PRODUCTS = {
     ],
   },
   ritualMist: {
-    name: 'Ritual Mist',
+    name: 'Ritual Mist™',
     tagline: 'Aromatic Reset Mist',
     description: 'An aromatic facial mist designed to ground your senses and prepare your skin for deeper care, creating a mindful moment in your day.',
     benefits: [
