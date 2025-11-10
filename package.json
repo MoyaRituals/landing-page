@@ -1,7 +1,7 @@
 {
-  "name": "nova-rituals-landing-page",
+  "name": "moya-rituals-landing-page",
   "version": "1.0.0",
-  "description": "Nova Rituals - The skincare ritual to reset your nervous system",
+  "description": "Moya Rituals - The skincare ritual to reset your nervous system",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +14,7 @@
     "nervous-system",
     "rituals"
   ],
-  "author": "Nova Rituals",
+  "author": "Moya Rituals",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

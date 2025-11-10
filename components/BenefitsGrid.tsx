@@ -15,7 +15,7 @@ export default function BenefitsGrid() {
           className="text-center mb-16"
         >
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4 text-balance">
-            Why Nova Rituals?
+            Why Moya Rituals?
           </h2>
           <p className="font-body text-lg text-nova-charcoal/70 max-w-2xl mx-auto">
             Skincare that honors both your skin and your nervous system

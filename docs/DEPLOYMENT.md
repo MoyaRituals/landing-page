@@ -1,6 +1,6 @@
 # Deployment Guide
 
-Complete guide to deploying the Nova Rituals landing page to Netlify with custom domain setup.
+Complete guide to deploying the Moya Rituals landing page to Netlify with custom domain setup.
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
@@ -105,29 +105,29 @@ Wait 2-3 minutes for build to complete.
 
 ## Custom Domain Setup (GoDaddy)
 
-Connect `novaritualsbeauty.com` to your Netlify site.
+Connect `moyaskincare.com` to your Netlify site.
 
 ### Step 1: Add Domain in Netlify
 
 1. In Netlify, go to "Site settings" → "Domain management"
 2. Click "Add custom domain"
-3. Enter: `novaritualsbeauty.com`
+3. Enter: `moyaskincare.com`
 4. Click "Verify"
 5. Netlify will show you DNS records to add
 
 ### Step 2: Configure DNS in GoDaddy
 
 1. Log in to [GoDaddy](https://dcc.godaddy.com/control/dns)
-2. Find `novaritualsbeauty.com` → click "DNS"
+2. Find `moyaskincare.com` → click "DNS"
 3. **Add these records:**
 
-#### Primary Domain (novaritualsbeauty.com)
+#### Primary Domain (moyaskincare.com)
 
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
 | A | @ | `75.2.60.5` | 600 |
 
-#### WWW Subdomain (www.novaritualsbeauty.com)
+#### WWW Subdomain (www.moyaskincare.com)
 
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
@@ -145,9 +145,9 @@ Connect `novaritualsbeauty.com` to your Netlify site.
 
 ### Step 4: Test
 
-- Visit `http://novaritualsbeauty.com` → should redirect to HTTPS
-- Visit `https://www.novaritualsbeauty.com` → should work
-- Visit `https://novaritualsbeauty.com` → should work
+- Visit `http://moyaskincare.com` → should redirect to HTTPS
+- Visit `https://www.moyaskincare.com` → should work
+- Visit `https://moyaskincare.com` → should work
 
 **DNS propagation**: Can take up to 48 hours, but usually 10-30 minutes.
 
@@ -228,7 +228,7 @@ Before going live:
 
 ### Domain Not Working
 
-**Symptom**: `novaritualsbeauty.com` shows error
+**Symptom**: `moyaskincare.com` shows error
 
 **Check**:
 1. DNS records match exactly (case-sensitive)
@@ -346,7 +346,7 @@ If deployment breaks something:
 
 1. **Test Ad Campaigns**
    - Set up Instagram/TikTok/Meta ads
-   - Drive traffic to `novaritualsbeauty.com`
+   - Drive traffic to `moyaskincare.com`
    - Monitor conversion rates
 
 2. **Monitor Analytics**
@@ -370,4 +370,4 @@ If deployment breaks something:
 
 - **Netlify Docs**: https://docs.netlify.com
 - **GoDaddy DNS Help**: https://www.godaddy.com/help/dns-29908
-- **Nova Rituals Support**: info@novaritualsbeauty.com
+- **Moya Rituals Support**: info@moyaskincare.com

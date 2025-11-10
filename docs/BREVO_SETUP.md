@@ -22,7 +22,7 @@ Complete guide to setting up Brevo (formerly Sendinblue) for email marketing and
 3. Fill in:
    - Email: Your business email (or use ImprovMX forwarding address)
    - Password: Strong password
-   - Company name: "Nova Rituals"
+   - Company name: "Moya Rituals"
 4. Verify email address (check inbox)
 
 ### Step 2: Complete Profile
@@ -79,7 +79,7 @@ We use the **API v3 key**.
 1. Go to "Contacts" → "Lists"
 2. Click "Create a list"
 3. Name: "Landing Page Waitlist"
-4. Folder: Create new folder "Nova Rituals" (optional)
+4. Folder: Create new folder "Moya Rituals" (optional)
 5. Click "Create"
 
 ### Step 2: Get List ID
@@ -212,14 +212,14 @@ After collecting signups, send:
 1. Go to "Campaigns" → "Email"
 2. Click "Create a campaign"
 3. Choose template or "Start from scratch"
-4. **Subject**: "Welcome to Nova Rituals 🌿"
-5. **From**: `info@novaritualsbeauty.com` (set up ImprovMX first!)
+4. **Subject**: "Welcome to Moya Rituals 🌿"
+5. **From**: `info@moyaskincare.com` (set up ImprovMX first!)
 6. **Content**:
 
 ```
 Hi {FIRSTNAME},
 
-Thank you for joining the Nova Rituals waitlist!
+Thank you for joining the Moya Rituals waitlist!
 
 You're now part of an exclusive group who will be the first to experience our neuro-calming skincare ritual.
 
@@ -233,12 +233,12 @@ Instagram: @novarituals
 TikTok: @novarituals
 
 To calm skin and clear minds,
-The Nova Rituals Team
+The Moya Rituals Team
 
 ---
 
 Calm Skin. Clear Head.
-www.novaritualsbeauty.com
+www.moyaskincare.com
 ```
 
 ### Send Campaign
@@ -299,7 +299,7 @@ Compare segments:
 
 1. **Verify Sender Domain** (advanced):
    - Go to "Senders" → "Domains"
-   - Add `novaritualsbeauty.com`
+   - Add `moyaskincare.com`
    - Add DNS records (SPF, DKIM)
    - Improves inbox delivery
 
@@ -406,4 +406,4 @@ For MVP validation, **free tier is perfect!**
 
 ## Questions?
 
-Contact: info@novaritualsbeauty.com
+Contact: info@moyaskincare.com

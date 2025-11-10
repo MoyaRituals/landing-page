@@ -1,8 +1,8 @@
-# Nova Rituals Landing Page
+# Moya Rituals Landing Page
 
 **The skincare ritual to reset your nervous system.**
 
-A lean validation MVP landing page for Nova Rituals, built following "The Right It" and "The Lean Startup" methodologies to test product-market fit through waitlist signups.
+A lean validation MVP landing page for Moya Rituals, built following "The Right It" and "The Lean Startup" methodologies to test product-market fit through waitlist signups.
 
 ## 🎯 Project Goals
 
@@ -14,16 +14,16 @@ A lean validation MVP landing page for Nova Rituals, built following "The Right 
 
 - **Framework**: Next.js 16 with TypeScript
 - **Rendering**: Static Site Generation (SSG) - pre-rendered HTML for maximum speed
-- **Styling**: Tailwind CSS with Nova Rituals brand colors
+- **Styling**: Tailwind CSS with Moya Rituals brand colors
 - **Animations**: Framer Motion
 - **Email Marketing**: Brevo (formerly Sendinblue)
 - **Analytics**: Google Analytics 4
 - **Hosting**: Netlify (free tier)
-- **Domain**: novaritualsbeauty.com (GoDaddy)
+- **Domain**: moyaskincare.com (GoDaddy)
 
 ## 📁 Project Structure
 
-```
+```bash
 landing-page/
 ├── app/
 │   ├── layout.tsx              # Root layout with fonts & SEO metadata
@@ -101,6 +101,7 @@ Detailed setup guides:
 ## ✨ Features
 
 ### A/B Testing
+
 - Two CTA variants tested automatically:
   - **Variant A**: "Join the Waitlist"
   - **Variant B**: "Preorder Your Ritual System"
@@ -108,6 +109,7 @@ Detailed setup guides:
 - Conversion events tracked in Google Analytics
 
 ### SEO Optimized
+
 - Static HTML for instant loading
 - Open Graph tags for social sharing
 - Twitter Card metadata
@@ -115,6 +117,7 @@ Detailed setup guides:
 - Responsive images
 
 ### Brand Integration
+
 - Custom Tailwind colors from brand book
 - Google Fonts (Cormorant Garamond + Inter)
 - Real product photography
@@ -154,7 +157,7 @@ See [ARCHITECTURE.md](docs/ARCHITECTURE.md) for migration details.
 
 ## 🤝 Contributing
 
-This is a private project for Nova Rituals. For questions, contact: info@novaritualsbeauty.com
+This is a private project for Moya Rituals. For questions, contact: <info@moyaskincare.com>
 
 ## 📄 License
 
