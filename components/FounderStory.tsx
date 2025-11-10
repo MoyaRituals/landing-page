@@ -41,7 +41,7 @@ export default function FounderStory() {
                   That's why every Moya Rituals formula combines neuro-calming botanicals with ritual-setting aromatics. It's not just skincare, it's a daily practice of coming home to yourself.
                 </p>
                 <p className="text-nova-taupe font-medium">
-                  - Founder, Moya Rituals
+                  - Bridget, Founder
                 </p>
               </div>
             </div>
