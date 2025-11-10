@@ -35,13 +35,13 @@ export default function FounderStory() {
                   Moya Rituals was born from a simple truth: our skin and nervous system are deeply connected.
                 </p>
                 <p>
-                  After years of struggling with stress-related skin issues, I discovered that the most effective skincare wasn't just about what I put on my skin—it was about how I felt when I did it.
+                  After years of struggling with stress-related skin issues, I discovered that the most effective skincare wasn't just about what I put on my skin, it was about how I felt when I did it.
                 </p>
                 <p>
-                  That's why every Moya Rituals formula combines neuro-calming botanicals with ritual-setting aromatics. It's not just skincare; it's a daily practice of coming home to yourself.
+                  That's why every Moya Rituals formula combines neuro-calming botanicals with ritual-setting aromatics. It's not just skincare, it's a daily practice of coming home to yourself.
                 </p>
                 <p className="text-nova-taupe font-medium">
-                  — Founder, Moya Rituals
+                  - Founder, Moya Rituals
                 </p>
               </div>
             </div>
