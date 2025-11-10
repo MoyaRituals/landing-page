@@ -19,13 +19,13 @@ Complete guide to setting up Google Analytics 4 (GA4) for tracking visitors, con
 
 1. Go to [https://analytics.google.com](https://analytics.google.com)
 2. Click "Start measuring"
-3. **Account name**: "Nova Rituals"
+3. **Account name**: "Moya Rituals"
 4. Check sharing settings (optional)
 5. Click "Next"
 
 ### Step 2: Create Property
 
-1. **Property name**: "Nova Rituals Landing Page"
+1. **Property name**: "Moya Rituals Landing Page"
 2. **Reporting time zone**: Your timezone
 3. **Currency**: USD
 4. Click "Next"
@@ -49,8 +49,8 @@ Complete guide to setting up Google Analytics 4 (GA4) for tracking visitors, con
 After creating property:
 
 1. **Platform**: Web
-2. **Website URL**: `https://novaritualsbeauty.com`
-3. **Stream name**: "Nova Rituals Website"
+2. **Website URL**: `https://moyaskincare.com`
+3. **Stream name**: "Moya Rituals Website"
 4. Click "Create stream"
 
 ### Step 2: Copy Measurement ID
@@ -96,7 +96,7 @@ Replace `G-XXXXXXXXXX` with your actual Measurement ID.
 ### Method 1: Real-Time Report
 
 1. Go to GA4 → Reports → Real-time
-2. Open your website: `https://novaritualsbeauty.com`
+2. Open your website: `https://moyaskincare.com`
 3. You should see:
    - 1 user active
    - Page view event
@@ -206,7 +206,7 @@ Divide by total traffic to each variant for conversion rate.
 **Track Ad Performance**:
 Use UTM parameters in your ads:
 ```
-https://novaritualsbeauty.com/?utm_source=instagram&utm_medium=paid&utm_campaign=launch
+https://moyaskincare.com/?utm_source=instagram&utm_medium=paid&utm_campaign=launch
 ```
 
 ### 3. Engagement Metrics
@@ -550,4 +550,4 @@ Same process, choose "CSV" format.
 ## Questions?
 
 Need help with GA4 setup?
-Contact: info@novaritualsbeauty.com
+Contact: info@moyaskincare.com

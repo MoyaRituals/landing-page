@@ -16,22 +16,22 @@ const inter = Inter({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://novaritualsbeauty.com'),
-  title: 'NOVA RITUALS | Reset Your Nervous System',
+  metadataBase: new URL('https://moyaskincare.com'),
+  title: 'MOYA RITUALS | Reset Your Nervous System',
   description: 'The skincare ritual to reset your nervous system. Discover MindSerum™ and Ritual Mist™, neuro-calming skincare that brings calm to your skin and clarity to your mind.',
   keywords: ['skincare', 'wellness', 'stress relief', 'nervous system', 'self-care rituals', 'neuro-calming', 'mindfulness'],
-  authors: [{ name: 'Nova Rituals' }],
+  authors: [{ name: 'Moya Rituals' }],
   openGraph: {
-    title: 'NOVA RITUALS | Reset Your Nervous System',
+    title: 'MOYA RITUALS | Reset Your Nervous System',
     description: 'The skincare ritual to reset your nervous system. Join the waitlist for MindSerum™ and Ritual Mist™.',
-    url: 'https://novaritualsbeauty.com',
-    siteName: 'Nova Rituals',
+    url: 'https://moyaskincare.com',
+    siteName: 'Moya Rituals',
     images: [
       {
         url: '/images/social_1x1.jpg',
         width: 1080,
         height: 1080,
-        alt: 'Nova Rituals - MindSerum and Ritual Mist',
+        alt: 'Moya Rituals - MindSerum and Ritual Mist',
       },
     ],
     locale: 'en_US',
@@ -39,7 +39,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NOVA RITUALS | Reset Your Nervous System',
+    title: 'MOYA RITUALS | Reset Your Nervous System',
     description: 'The skincare ritual to reset your nervous system.',
     images: ['/images/social_1x1.jpg'],
   },

@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://novaritualsbeauty.com/sitemap.xml
+Sitemap: https://moyaskincare.com/sitemap.xml

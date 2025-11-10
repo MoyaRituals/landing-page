@@ -1,4 +1,4 @@
-// Nova Rituals Brand Constants
+// Moya Rituals Brand Constants
 
 // Types
 export type CTAVariant = 'A' | 'B'
@@ -102,8 +102,8 @@ export const CTA_VARIANTS: Record<CTAVariant, string> = {
 } as const
 
 export const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/novarituals', // Update with actual handle
-  tiktok: 'https://tiktok.com/@novarituals', // Update with actual handle
+  instagram: 'https://instagram.com/moyarituals', // Update with actual handle
+  tiktok: 'https://tiktok.com/@moyarituals', // Update with actual handle
 }
 
-export const CONTACT_EMAIL = 'info@novaritualsbeauty.com'
+export const CONTACT_EMAIL = 'info@moyaskincare.com'

@@ -10,7 +10,7 @@ export default function Header() {
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo_primary.png"
-              alt="Nova Rituals"
+              alt="Moya Rituals"
               width={180}
               height={40}
               className="h-8 w-auto"

@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero_16x9.jpg"
-          alt="Nova Rituals Products"
+          alt="Moya Rituals Products"
           fill
           className="object-cover opacity-40"
           priority

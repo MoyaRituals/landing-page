@@ -1,6 +1,6 @@
 # Business Email Setup with ImprovMX
 
-Complete guide to setting up free professional email forwarding for `info@novaritualsbeauty.com` using ImprovMX.
+Complete guide to setting up free professional email forwarding for `info@moyaskincare.com` using ImprovMX.
 
 ## Table of Contents
 1. [What is ImprovMX?](#what-is-improvmx)
@@ -17,7 +17,7 @@ Complete guide to setting up free professional email forwarding for `info@novari
 ## What is ImprovMX?
 
 **ImprovMX** is a free email forwarding service that lets you:
-- Receive emails at `info@novaritualsbeauty.com`
+- Receive emails at `info@moyaskincare.com`
 - Forward them to your personal email (Gmail, etc.)
 - Reply from your custom domain (with setup)
 
@@ -57,10 +57,10 @@ You'll land on the ImprovMX dashboard:
 
 ## Add Domain
 
-### Step 1: Add novaritualsbeauty.com
+### Step 1: Add moyaskincare.com
 
 1. Click "Add domain"
-2. Enter: `novaritualsbeauty.com`
+2. Enter: `moyaskincare.com`
 3. Click "Add domain"
 
 ### Step 2: Note DNS Records
@@ -89,7 +89,7 @@ Keep this page open - you'll need these for GoDaddy.
 ### Step 1: Access DNS Settings
 
 1. Log in to [GoDaddy DNS Management](https://dcc.godaddy.com/control/dns)
-2. Find `novaritualsbeauty.com`
+2. Find `moyaskincare.com`
 3. Click "DNS" button
 
 ### Step 2: Remove Existing MX Records (If Any)
@@ -139,20 +139,20 @@ This helps with email deliverability:
 ### Step 1: Create info@ Alias
 
 1. Back in ImprovMX dashboard
-2. Click on `novaritualsbeauty.com`
+2. Click on `moyaskincare.com`
 3. Click "Add alias"
 4. **Alias**: `info`
 5. **Forward to**: Your personal email (e.g., `you@gmail.com`)
 6. Click "Create alias"
 
-Now emails to `info@novaritualsbeauty.com` forward to your personal email!
+Now emails to `info@moyaskincare.com` forward to your personal email!
 
 ### Step 2: Add More Aliases (Optional)
 
 Create additional professional addresses:
-- `hello@novaritualsbeauty.com` → your email
-- `support@novaritualsbeauty.com` → your email
-- `orders@novaritualsbeauty.com` → your email
+- `hello@moyaskincare.com` → your email
+- `support@moyaskincare.com` → your email
+- `orders@moyaskincare.com` → your email
 
 All free, all forward to same personal inbox.
 
@@ -164,20 +164,20 @@ Enable catch-all to receive ANY email to your domain:
 2. Toggle "Catch-all" to ON
 3. Choose forward address
 
-Now `anything@novaritualsbeauty.com` forwards to you.
+Now `anything@moyaskincare.com` forwards to you.
 
 ---
 
 ## Send Email From Custom Domain
 
-To **reply** from `info@novaritualsbeauty.com` instead of your personal email:
+To **reply** from `info@moyaskincare.com` instead of your personal email:
 
 ### Option 1: Gmail SMTP (Easiest)
 
 1. Go to Gmail Settings → "Accounts and Import"
 2. Click "Add another email address"
-3. Name: "Nova Rituals"
-4. Email: `info@novaritualsbeauty.com`
+3. Name: "Moya Rituals"
+4. Email: `info@moyaskincare.com`
 5. Uncheck "Treat as an alias"
 6. Click "Next"
 
@@ -189,11 +189,11 @@ Username: your-gmail@gmail.com
 Password: Your Gmail app password
 ```
 
-7. Gmail will send verification email to `info@novaritualsbeauty.com`
+7. Gmail will send verification email to `info@moyaskincare.com`
 8. Check your inbox (it'll forward) for confirmation link
 9. Click link to verify
 
-Now you can send from `info@novaritualsbeauty.com` in Gmail!
+Now you can send from `info@moyaskincare.com` in Gmail!
 
 **Dropdown**: When composing, click "From" dropdown to choose address.
 
@@ -210,23 +210,23 @@ ImprovMX offers SMTP for **$9/month**:
 
 ### Test Receiving
 
-1. Send test email to `info@novaritualsbeauty.com` from another account
+1. Send test email to `info@moyaskincare.com` from another account
 2. Check your personal inbox
 3. Should arrive within 1-2 minutes
 
 **If delayed (10+ min)**:
 - DNS propagation not complete (wait up to 48 hours)
 - Check MX records in GoDaddy are correct
-- Use [MX Toolbox](https://mxtoolbox.com/) to verify: `novaritualsbeauty.com`
+- Use [MX Toolbox](https://mxtoolbox.com/) to verify: `moyaskincare.com`
 
 ### Test Sending (If configured Gmail SMTP)
 
 1. In Gmail, compose new email
-2. Click "From" → Choose `info@novaritualsbeauty.com`
+2. Click "From" → Choose `info@moyaskincare.com`
 3. Send to yourself
 4. Check "From" address in received email
 
-Should show: `info@novaritualsbeauty.com`
+Should show: `info@moyaskincare.com`
 
 ### Check Logs
 
@@ -254,10 +254,10 @@ If you need a real mailbox (not just forwarding):
 
 **Setup**:
 1. Go to [workspace.google.com](https://workspace.google.com)
-2. Sign up with `novaritualsbeauty.com`
+2. Sign up with `moyaskincare.com`
 3. Verify domain ownership
 4. Add MX records (Google provides)
-5. Create mailbox: `info@novaritualsbeauty.com`
+5. Create mailbox: `info@moyaskincare.com`
 
 ### Zoho Mail
 
@@ -320,14 +320,14 @@ If you need a real mailbox (not just forwarding):
 
 **MX Toolbox Test**:
 1. Go to [mxtoolbox.com/SuperTool.aspx](https://mxtoolbox.com/SuperTool.aspx)
-2. Enter: `novaritualsbeauty.com`
+2. Enter: `moyaskincare.com`
 3. Should show `mx1.improvmx.com` and `mx2.improvmx.com`
 
 ### Emails Going to Spam
 
 **Solutions**:
 1. Add SPF record (see above)
-2. Ask recipient to whitelist `info@novaritualsbeauty.com`
+2. Ask recipient to whitelist `info@moyaskincare.com`
 3. Avoid spam trigger words in content
 4. Build sender reputation (send consistently, low volume)
 
@@ -337,7 +337,7 @@ If you need a real mailbox (not just forwarding):
 1. Enable 2-factor auth in Google Account
 2. Generate "App Password" (not regular password)
 3. Use app password in Gmail SMTP settings
-4. Verify `info@novaritualsbeauty.com` in ImprovMX
+4. Verify `info@moyaskincare.com` in ImprovMX
 
 ---
 
@@ -367,7 +367,7 @@ If you have team members:
 ### Option 1: Forward to Multiple Emails (ImprovMX Free)
 
 ```
-info@novaritualsbeauty.com → you@gmail.com, partner@gmail.com
+info@moyaskincare.com → you@gmail.com, partner@gmail.com
 ```
 
 Both receive all emails to `info@`.
@@ -375,9 +375,9 @@ Both receive all emails to `info@`.
 ### Option 2: Role-Based Aliases (ImprovMX Free)
 
 ```
-info@novaritualsbeauty.com → you@gmail.com
-support@novaritualsbeauty.com → partner@gmail.com
-orders@novaritualsbeauty.com → you@gmail.com
+info@moyaskincare.com → you@gmail.com
+support@moyaskincare.com → partner@gmail.com
+orders@moyaskincare.com → you@gmail.com
 ```
 
 Different roles go to different people.
@@ -386,8 +386,8 @@ Different roles go to different people.
 
 Each person has their own:
 ```
-yourname@novaritualsbeauty.com
-partner@novaritualsbeauty.com
+yourname@moyaskincare.com
+partner@moyaskincare.com
 ```
 
 Best for growing teams.
@@ -408,13 +408,13 @@ Best for growing teams.
 After email is set up:
 
 1. **Test Thoroughly** - Send/receive multiple test emails
-2. **Update Website** - Add `mailto:info@novaritualsbeauty.com` links
-3. **Configure Brevo** - Set "From" address to `info@novaritualsbeauty.com`
+2. **Update Website** - Add `mailto:info@moyaskincare.com` links
+3. **Configure Brevo** - Set "From" address to `info@moyaskincare.com`
 4. **Professional Signature** - Add to Gmail signature:
    ```
-   Nova Rituals
+   Moya Rituals
    Calm Skin. Clear Head.
-   www.novaritualsbeauty.com
+   www.moyaskincare.com
    ```
 
 ---
@@ -430,4 +430,4 @@ After email is set up:
 
 ## Questions?
 
-Test email: info@novaritualsbeauty.com (once setup is complete!)
+Test email: info@moyaskincare.com (once setup is complete!)
