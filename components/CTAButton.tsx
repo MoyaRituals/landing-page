@@ -34,8 +34,8 @@ export default function CTAButton({
       onClick={handleClick}
       className={`
         ${sizeClasses[size]}
-        bg-nova-taupe text-white font-body font-semibold rounded-full
-        hover:bg-nova-taupe/90 hover:scale-105
+        bg-moya-taupe text-white font-body font-semibold rounded-full
+        hover:bg-moya-taupe/90 hover:scale-105
         transition-all duration-200
         shadow-lg hover:shadow-xl
         ${className}

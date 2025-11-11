@@ -6,7 +6,7 @@ import ProductCard from './ProductCard'
 
 export default function ProductShowcase() {
   return (
-    <section className="py-20 bg-nova-warm-beige">
+    <section className="py-20 bg-moya-warm-beige">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,10 +15,10 @@ export default function ProductShowcase() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4 text-balance">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-moya-charcoal mb-4 text-balance">
             The Reset Duo
           </h2>
-          <p className="font-body text-lg text-nova-charcoal/70 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-moya-charcoal/70 max-w-2xl mx-auto">
             Two products. Three minutes. Complete nervous system reset.
           </p>
         </motion.div>

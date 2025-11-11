@@ -14,10 +14,10 @@ export default function BenefitsGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4 text-balance">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-moya-charcoal mb-4 text-balance">
             Why Moya Rituals?
           </h2>
-          <p className="font-body text-lg text-nova-charcoal/70 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-moya-charcoal/70 max-w-2xl mx-auto">
             Skincare that honors both your skin and your nervous system
           </p>
         </motion.div>
@@ -36,12 +36,12 @@ export default function BenefitsGrid() {
               <div className="text-5xl mb-6">{benefit.icon}</div>
 
               {/* Title */}
-              <h3 className="font-heading text-xl sm:text-2xl font-semibold text-nova-charcoal mb-3">
+              <h3 className="font-heading text-xl sm:text-2xl font-semibold text-moya-charcoal mb-3">
                 {benefit.title}
               </h3>
 
               {/* Description */}
-              <p className="font-body text-base text-nova-charcoal/70 leading-relaxed">
+              <p className="font-body text-base text-moya-charcoal/70 leading-relaxed">
                 {benefit.description}
               </p>
             </motion.div>

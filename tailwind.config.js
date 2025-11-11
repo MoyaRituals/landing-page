@@ -8,12 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Nova Rituals Brand Colors
-        'nova-taupe': '#A68C84',
-        'nova-rose-clay': '#D9A79B',
-        'nova-warm-beige': '#F2EDE9',
-        'nova-stone': '#C9BCB2',
-        'nova-charcoal': '#2B2B2B',
+        // moya Rituals Brand Colors
+        'moya-taupe': '#A68C84',
+        'moya-rose-clay': '#D9A79B',
+        'moya-warm-beige': '#F2EDE9',
+        'moya-stone': '#C9BCB2',
+        'moya-charcoal': '#2B2B2B',
       },
       fontFamily: {
         'heading': ['var(--font-cormorant)', 'serif'],

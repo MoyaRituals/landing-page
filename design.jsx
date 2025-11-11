@@ -30,7 +30,7 @@ const RITUAL_STEPS = [
   { n: 3, title: "Serum", body: "Three drops. Press over face and neck." }
 ];
 
-export default function NovaRitualsLanding() {
+export default function moyaRitualsLanding() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -75,7 +75,7 @@ function Header() {
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Logo />
-          <span className="font-semibold tracking-wide">NOVA Rituals</span>
+          <span className="font-semibold tracking-wide">moya Rituals</span>
         </div>
         <a href="#waitlist" className="px-4 py-2 rounded-2xl bg-neutral-900 text-white text-sm hover:opacity-90">Join Waitlist</a>
       </div>
@@ -93,7 +93,7 @@ function Hero() {
             The skincare ritual to reset your nervous system.
           </h1>
           <p className="mt-5 text-neutral-700 md:text-lg max-w-prose">
-            NOVA Rituals combines high‑performance skincare with a simple daily reset, so your skin looks balanced and you feel more present—without adding complexity to your routine.
+            moya Rituals combines high‑performance skincare with a simple daily reset, so your skin looks balanced and you feel more present—without adding complexity to your routine.
           </p>
           <div className="mt-8 flex gap-3">
             <a href="#products" className="px-5 py-3 rounded-2xl bg-neutral-900 text-white text-sm hover:opacity-90">Explore Products</a>
@@ -115,7 +115,7 @@ function HeroImage() {
       {/* Use branded product shot */}
       <img
         src="/mnt/data/1266dd64-21f3-4469-8254-f9a6596e5743.png"
-        alt="NOVA Rituals MindSerum and Ritual Mist product shot"
+        alt="moya Rituals MindSerum and Ritual Mist product shot"
         className="w-full h-full object-cover"
       />
     </div>
@@ -203,7 +203,7 @@ function Ritual() {
           </div>
         </div>
         <div className="rounded-3xl overflow-hidden border border-neutral-200 bg-white p-0 shadow-sm">
-          <img src="/mnt/data/1266dd64-21f3-4469-8254-f9a6596e5743.png" alt="NOVA Rituals Reset Duo" className="w-full h-auto object-cover" />
+          <img src="/mnt/data/1266dd64-21f3-4469-8254-f9a6596e5743.png" alt="moya Rituals Reset Duo" className="w-full h-auto object-cover" />
           <p className="text-xs text-neutral-500 mt-3 p-3">Pair with 4‑7‑8 breathing for rapid down‑regulation.</p>
         </div>
       </div>
@@ -216,7 +216,7 @@ function Founder() {
     <div id="founder" className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h2 className="text-3xl md:text-4xl font-semibold">Founded by a global marketing leader</h2>
-        <p className="text-neutral-700 mt-4 text-sm">After 25 years building purpose‑led brands across North America and Europe, our founder created NOVA Rituals to connect what we know with what we feel—because resilience looks better on you.</p>
+        <p className="text-neutral-700 mt-4 text-sm">After 25 years building purpose‑led brands across North America and Europe, our founder created moya Rituals to connect what we know with what we feel—because resilience looks better on you.</p>
       </div>
       <div className="rounded-3xl border border-neutral-200 bg-gradient-to-br from-rose-100/60 to-white p-6 shadow-sm flex items-center justify-center">
         <div className="w-40 h-40 rounded-full bg-rose-200/70" />
@@ -229,7 +229,7 @@ function CTA({ email, setEmail, onSubmit, submitted }: { email: string; setEmail
   return (
     <div id="waitlist" className="max-w-3xl mx-auto px-4 text-center bg-white rounded-3xl p-10 shadow-sm border border-neutral-200">
       <h2 className="text-3xl font-semibold">Join the waitlist</h2>
-      <p className="text-neutral-700 mt-3">Be first to experience NOVA Rituals and receive a 3‑minute ritual guide.</p>
+      <p className="text-neutral-700 mt-3">Be first to experience moya Rituals and receive a 3‑minute ritual guide.</p>
       {submitted ? (
         <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-green-800">
           Thank you! You’re on the list.
@@ -255,7 +255,7 @@ function CTA({ email, setEmail, onSubmit, submitted }: { email: string; setEmail
 function Footer() {
   return (
     <footer className="py-14 text-center text-sm text-neutral-500 border-t border-neutral-200">
-      © {new Date().getFullYear()} NOVA Rituals · Concept site for demonstration purposes.
+      © {new Date().getFullYear()} moya Rituals · Concept site for demonstration purposes.
     </footer>
   );
 }
