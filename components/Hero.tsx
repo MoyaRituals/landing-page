@@ -14,7 +14,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-nova-warm-beige">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-moya-warm-beige">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -24,7 +24,7 @@ export default function Hero() {
           className="object-cover opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-nova-warm-beige/60 via-transparent to-nova-warm-beige/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-moya-warm-beige/60 via-transparent to-moya-warm-beige/80" />
       </div>
 
       {/* Content */}
@@ -35,17 +35,17 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           {/* Tagline */}
-          <p className="text-nova-taupe font-body font-medium text-sm sm:text-base tracking-wide uppercase mb-6">
+          <p className="text-moya-taupe font-body font-medium text-sm sm:text-base tracking-wide uppercase mb-6">
             {BRAND_STATEMENT}
           </p>
 
           {/* Headline */}
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-nova-charcoal mb-6 leading-tight text-balance">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-moya-charcoal mb-6 leading-tight text-balance">
             {BRAND_TAGLINE}
           </h1>
 
           {/* Subheadline */}
-          <p className="font-body text-lg sm:text-xl md:text-2xl text-nova-charcoal/80 mb-12 max-w-2xl mx-auto text-balance">
+          <p className="font-body text-lg sm:text-xl md:text-2xl text-moya-charcoal/80 mb-12 max-w-2xl mx-auto text-balance">
             Discover MindSerum™ and Ritual Mist™{' '}
             <span className="inline-block">neuro-calming skincare</span> that brings calm to your skin and clarity to your mind.
           </p>
@@ -69,7 +69,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 text-sm text-nova-charcoal/60"
+            className="mt-8 text-sm text-moya-charcoal/60"
           >
             Join the waitlist for exclusive launch access
           </motion.p>
@@ -83,11 +83,11 @@ export default function Hero() {
         transition={{ duration: 1, delay: 1 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <div className="w-6 h-10 border-2 border-nova-taupe rounded-full flex items-start justify-center p-2">
+        <div className="w-6 h-10 border-2 border-moya-taupe rounded-full flex items-start justify-center p-2">
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-nova-taupe rounded-full"
+            className="w-1.5 h-1.5 bg-moya-taupe rounded-full"
           />
         </div>
       </motion.div>

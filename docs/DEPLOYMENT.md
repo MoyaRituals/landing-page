@@ -44,7 +44,7 @@ This creates an `/out` folder with static files.
 ### Step 3: Configure Site
 
 1. Click "Site settings"
-2. Change site name: `nova-rituals` (URL becomes `nova-rituals.netlify.app`)
+2. Change site name: `moya-rituals` (URL becomes `moya-rituals.netlify.app`)
 3. Add environment variables (see [Environment Variables](#environment-variables))
 
 **Pros**: Fastest way to deploy
@@ -61,7 +61,7 @@ Best for continuous deployment. Push to GitHub → auto-deploys to Netlify.
 (Assuming the git setup is complete per main plan)
 
 ```bash
-git remote add origin https://github.com/NovaRituals/landing-page.git
+git remote add origin https://github.com/moyaRituals/landing-page.git
 git push -u origin main
 ```
 
@@ -71,7 +71,7 @@ git push -u origin main
 2. Click "Add new site" → "Import an existing project"
 3. Choose "GitHub"
 4. Authorize Netlify to access your GitHub
-5. Select `NovaRituals/landing-page` repository
+5. Select `moyaRituals/landing-page` repository
 
 ### Step 3: Configure Build Settings
 
@@ -131,7 +131,7 @@ Connect `moyaskincare.com` to your Netlify site.
 
 | Type | Name | Value | TTL |
 |------|------|-------|-----|
-| CNAME | www | `nova-rituals.netlify.app` | 600 |
+| CNAME | www | `moya-rituals.netlify.app` | 600 |
 
 **Note**: The IP address `75.2.60.5` is Netlify's load balancer. Check [Netlify docs](https://docs.netlify.com/domains-https/custom-domains/) for current IPs.
 

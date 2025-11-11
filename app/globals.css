@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply font-body text-nova-charcoal bg-nova-warm-beige;
+    @apply font-body text-moya-charcoal bg-moya-warm-beige;
   }
 
   h1, h2, h3, h4, h5, h6 {

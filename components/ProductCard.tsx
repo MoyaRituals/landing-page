@@ -10,7 +10,7 @@ export default function ProductCard({ product, imageSrc }: ProductCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       {/* Product Image */}
-      <div className="relative h-80 bg-nova-warm-beige">
+      <div className="relative h-80 bg-moya-warm-beige">
         <Image
           src={imageSrc}
           alt={product.name}
@@ -21,13 +21,13 @@ export default function ProductCard({ product, imageSrc }: ProductCardProps) {
 
       {/* Product Info */}
       <div className="p-8">
-        <h3 className="font-heading text-2xl font-bold text-nova-charcoal mb-2">
+        <h3 className="font-heading text-2xl font-bold text-moya-charcoal mb-2">
           {product.name}
         </h3>
-        <p className="font-body text-sm text-nova-taupe font-medium mb-4 uppercase tracking-wide">
+        <p className="font-body text-sm text-moya-taupe font-medium mb-4 uppercase tracking-wide">
           {product.tagline}
         </p>
-        <p className="font-body text-base text-nova-charcoal/80 mb-6 leading-relaxed">
+        <p className="font-body text-base text-moya-charcoal/80 mb-6 leading-relaxed">
           {product.description}
         </p>
 
@@ -35,8 +35,8 @@ export default function ProductCard({ product, imageSrc }: ProductCardProps) {
         <ul className="space-y-2">
           {product.benefits.map((benefit, index) => (
             <li key={index} className="flex items-start">
-              <span className="text-nova-taupe mr-2 mt-1">✓</span>
-              <span className="font-body text-sm text-nova-charcoal/70">
+              <span className="text-moya-taupe mr-2 mt-1">✓</span>
+              <span className="font-body text-sm text-moya-charcoal/70">
                 {benefit}
               </span>
             </li>

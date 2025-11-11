@@ -14,10 +14,10 @@ export default function RitualSteps() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-nova-charcoal mb-4 text-balance">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-moya-charcoal mb-4 text-balance">
             Your 3-Minute Ritual
           </h2>
-          <p className="font-body text-lg text-nova-charcoal/70">
+          <p className="font-body text-lg text-moya-charcoal/70">
             Simple steps to reset your nervous system
           </p>
         </motion.div>
@@ -34,8 +34,8 @@ export default function RitualSteps() {
             >
               {/* Step Number */}
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-full bg-nova-taupe/10 flex items-center justify-center">
-                  <span className="font-heading text-2xl font-bold text-nova-taupe">
+                <div className="w-16 h-16 rounded-full bg-moya-taupe/10 flex items-center justify-center">
+                  <span className="font-heading text-2xl font-bold text-moya-taupe">
                     {step.step}
                   </span>
                 </div>
@@ -43,10 +43,10 @@ export default function RitualSteps() {
 
               {/* Step Content */}
               <div className="flex-1 pt-2">
-                <h3 className="font-heading text-2xl font-semibold text-nova-charcoal mb-2">
+                <h3 className="font-heading text-2xl font-semibold text-moya-charcoal mb-2">
                   {step.title}
                 </h3>
-                <p className="font-body text-base text-nova-charcoal/70 leading-relaxed">
+                <p className="font-body text-base text-moya-charcoal/70 leading-relaxed">
                   {step.description}
                 </p>
               </div>

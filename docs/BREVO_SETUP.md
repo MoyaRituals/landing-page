@@ -229,8 +229,8 @@ Here's what happens next:
 - Plus a special gift with your first order
 
 In the meantime, follow us:
-Instagram: @novarituals
-TikTok: @novarituals
+Instagram: @moyarituals
+TikTok: @moyarituals
 
 To calm skin and clear minds,
 The Moya Rituals Team
