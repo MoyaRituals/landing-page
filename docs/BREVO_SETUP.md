@@ -221,7 +221,7 @@ After collecting signups, send:
 5. **From**: `info@moyaskincare.com` (set up ImprovMX first!)
 6. **Content**:
 
-```
+```md
 Hi {FIRSTNAME},
 
 Thank you for joining the Moya Rituals waitlist!
