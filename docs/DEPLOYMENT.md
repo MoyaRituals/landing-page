@@ -1,79 +1,40 @@
 # Deployment Guide
 
-Complete guide to deploying the Moya Rituals landing page to Netlify with custom domain setup.
+Complete guide to deploying the Moya Rituals landing page to Netlify with automatic Git-based deployment.
 
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
-2. [Option A: Netlify Drop (Easiest)](#option-a-netlify-drop-easiest)
-3. [Option B: Netlify via Git (Recommended)](#option-b-netlify-via-git-recommended)
-4. [Custom Domain Setup (GoDaddy)](#custom-domain-setup-godaddy)
-5. [Environment Variables](#environment-variables)
-6. [Troubleshooting](#troubleshooting)
+2. [Netlify Setup via Git](#netlify-setup-via-git)
+3. [Custom Domain Setup (GoDaddy)](#custom-domain-setup-godaddy)
+4. [Environment Variables](#environment-variables)
+5. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Prerequisites
 
-- [ ] Built the production site locally (`npm run build`)
+- [ ] Code pushed to GitHub repository
 - [ ] Brevo API key ready (see [BREVO_SETUP.md](BREVO_SETUP.md))
+- [ ] Brevo email templates deployed (see [EMAIL_TEMPLATES.md](EMAIL_TEMPLATES.md))
 - [ ] Google Analytics ID ready (see [ANALYTICS_SETUP.md](ANALYTICS_SETUP.md))
 - [ ] Access to GoDaddy DNS settings
 
 ---
 
-## Option A: Netlify Drop (Easiest)
+## Netlify Setup via Git
 
-Perfect for quick testing or if you don't want to use Git.
+Automatic deployment: Push to GitHub → Netlify auto-deploys your site.
 
-### Step 1: Build the Site
-
-```bash
-npm run build
-```
-
-This creates an `/out` folder with static files.
-
-### Step 2: Drag & Drop to Netlify
-
-1. Go to [https://app.netlify.com/drop](https://app.netlify.com/drop)
-2. Create free account (or log in)
-3. Drag the `/out` folder onto the drop zone
-4. Wait 30 seconds for deployment
-5. Get temporary URL: `https://random-name-12345.netlify.app`
-
-### Step 3: Configure Site
-
-1. Click "Site settings"
-2. Change site name: `moya-rituals` (URL becomes `moya-rituals.netlify.app`)
-3. Add environment variables (see [Environment Variables](#environment-variables))
-
-**Pros**: Fastest way to deploy
-**Cons**: Manual redeployment needed for updates
-
----
-
-## Option B: Netlify via Git (Recommended)
-
-Best for continuous deployment. Push to GitHub → auto-deploys to Netlify.
-
-### Step 1: Push to GitHub
-
-(Assuming the git setup is complete per main plan)
-
-```bash
-git remote add origin https://github.com/moyaRituals/landing-page.git
-git push -u origin main
-```
-
-### Step 2: Connect Netlify to GitHub
+### Step 1: Connect Netlify to GitHub
 
 1. Go to [https://app.netlify.com](https://app.netlify.com)
-2. Click "Add new site" → "Import an existing project"
-3. Choose "GitHub"
-4. Authorize Netlify to access your GitHub
-5. Select `moyaRituals/landing-page` repository
+2. Click "Add new project"
+3. Choose "Import from Git"
+4. Select "GitHub"
+5. Authorize Netlify to access your GitHub (if first time)
+6. Select `MoyaRituals/landing-page` repository
 
-### Step 3: Configure Build Settings
+### Step 2: Configure Build Settings
 
 Netlify should auto-detect Next.js, but verify:
 
@@ -82,9 +43,9 @@ Build command: npm run build
 Publish directory: out
 ```
 
-### Step 4: Add Environment Variables
+### Step 3: Add Environment Variables
 
-Before deploying, add:
+Before deploying, add (see [Environment Variables](#environment-variables) section for details):
 
 1. Click "Site settings" → "Environment variables"
 2. Add each variable:
@@ -94,14 +55,21 @@ Before deploying, add:
    - `BREVO_TEMPLATE_WELCOME_B` = template_id_for_variant_b
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID` = G-XXXXXXXXXX (client-side)
 
-### Step 5: Deploy
+### Step 4: Deploy
 
 Click "Deploy site"
 
 Wait 2-3 minutes for build to complete.
 
-**Pros**: Auto-deploys on git push, version history
-**Cons**: Requires GitHub setup
+### Step 5: Ongoing Deployments
+
+From now on, every time you push to GitHub:
+
+1. Make code changes locally
+2. Commit: `git commit -am "Update homepage copy"`
+3. Push: `git push`
+4. Netlify auto-deploys in 2-3 minutes
+5. Check deploy status in Netlify dashboard
 
 ---
 
