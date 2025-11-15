@@ -30,13 +30,20 @@ Complete guide to setting up Google Analytics 4 (GA4) for tracking visitors, con
 3. **Currency**: USD
 4. Click "Next"
 
-### Step 3: Business Details
+### Step 3: Business Objectives
 
-1. **Industry**: "Health & Beauty"
-2. **Business size**: "Small" (1-10 employees)
-3. **How do you intend to use Google Analytics**:
-   - ✅ Examine user behavior
-   - ✅ Measure advertising ROI
+**Choose your business objectives** - Select what's most relevant:
+
+1. ✅ **Generate leads** (Recommended)
+   - Measure actions that indicate potential customers, such as completing contact form or requesting a quote
+   - This matches your email signup goal
+
+2. ✅ **Understand web and/or app traffic** (Optional but useful)
+   - Measure your website or app visitors and the channels that drive their visits
+
+3. ☐ **View user engagement and retention** (Optional)
+   - Learn how people explore the products or services on your website or app
+
 4. Click "Create"
 5. Accept Terms of Service
 
@@ -57,7 +64,7 @@ After creating property:
 
 You'll see a box with:
 
-```
+```shell
 Measurement ID: G-XXXXXXXXXX
 ```
 

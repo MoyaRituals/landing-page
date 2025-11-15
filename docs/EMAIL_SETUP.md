@@ -1,208 +1,297 @@
-# Business Email Setup with ImprovMX
+# Business Email Setup with Google Workspace
 
-Complete guide to setting up free professional email forwarding for `info@moyaskincare.com` using ImprovMX.
+Complete guide to setting up professional email for `info@moyaskincare.com` using Google Workspace.
 
 ## Table of Contents
-1. [What is ImprovMX?](#what-is-improvmx)
-2. [Create ImprovMX Account](#create-improvmx-account)
-3. [Add Domain](#add-domain)
-4. [Configure DNS in GoDaddy](#configure-dns-in-godaddy)
-5. [Set Up Email Alias](#set-up-email-alias)
-6. [Send Email From Custom Domain](#send-email-from-custom-domain)
+
+1. [What is Google Workspace?](#what-is-google-workspace)
+2. [Create Google Workspace Account](#create-google-workspace-account)
+3. [Verify Domain Ownership](#verify-domain-ownership)
+4. [Configure MX Records in GoDaddy](#configure-mx-records-in-godaddy)
+5. [Create Email Accounts](#create-email-accounts)
+6. [Access Your Email](#access-your-email)
 7. [Testing](#testing)
-8. [Alternative: Paid Email Options](#alternative-paid-email-options)
 
 ---
 
-## What is ImprovMX?
+## What is Google Workspace?
 
-**ImprovMX** is a free email forwarding service that lets you:
-- Receive emails at `info@moyaskincare.com`
-- Forward them to your personal email (Gmail, etc.)
-- Reply from your custom domain (with setup)
+**Google Workspace** (formerly G Suite) is Google's professional email and productivity suite:
 
-**Perfect for MVP because**:
-- ✅ Completely free (unlimited forwards)
-- ✅ No mailbox limits
-- ✅ Easy setup (just DNS records)
-- ✅ Works with any email provider
+**Features**:
 
-**Limitations**:
-- ❌ Not a real mailbox (just forwarding)
-- ❌ All emails end up in personal inbox
-- ❌ Requires SMTP setup to send from custom domain
+- ✅ Professional Gmail with your domain (`info@moyaskincare.com`)
+- ✅ 30GB storage per user
+- ✅ Google Drive, Calendar, Meet included
+- ✅ Best-in-class spam filtering
+- ✅ Mobile apps (Gmail, Drive, Calendar)
+- ✅ Professional appearance
 
-**When to upgrade**: When you need dedicated mailbox, team emails, or professional appearance.
+**Cost**: $6/user/month (Business Starter plan)
+
+**Why Google Workspace**:
+
+- Industry-standard professional email
+- Familiar Gmail interface
+- Reliable 99.9% uptime SLA
+- Easy team collaboration
+- Scales as you grow
 
 ---
 
-## Create ImprovMX Account
+## Create Google Workspace Account
 
 ### Step 1: Sign Up
 
-1. Go to [https://improvmx.com](https://improvmx.com)
-2. Click "Get started for free"
-3. Enter email: Your personal email (where forwards will go)
-4. Create password
-5. Verify email address
+1. Go to [workspace.google.com](https://workspace.google.com)
+2. Click "Get Started"
+3. Enter business name: **Moya Rituals**
+4. Select "Just you" or number of employees
+5. Select your country/region
+6. Click "Next"
 
-### Step 2: Dashboard
+### Step 2: Enter Domain
 
-You'll land on the ImprovMX dashboard:
-- See all your domains
-- Create email aliases
-- View forwarding logs
+1. Choose "Yes, I have one I can use"
+2. Enter domain: `moyaskincare.com`
+3. Click "Next"
 
----
+### Step 3: Create Admin Account
 
-## Add Domain
+1. First name: Your first name
+2. Last name: Your last name
+3. Email username: Your choice (this will be your admin account)
+   - Recommended: Your name (e.g., `yourname@moyaskincare.com`)
+4. Create strong password
+5. Click "Next"
 
-### Step 1: Add moyaskincare.com
+### Step 4: Billing Information
 
-1. Click "Add domain"
-2. Enter: `moyaskincare.com`
-3. Click "Add domain"
+1. Select plan: **Business Starter** ($6/user/month)
+2. Enter payment information
+3. Review and accept terms
+4. Click "Subscribe"
 
-### Step 2: Note DNS Records
-
-ImprovMX will show you two DNS records to add:
-
-**MX Records** (Mail Exchange):
-```
-Type: MX
-Host: @
-Value: mx1.improvmx.com
-Priority: 10
-
-Type: MX
-Host: @
-Value: mx2.improvmx.com
-Priority: 20
-```
-
-Keep this page open - you'll need these for GoDaddy.
+**Note**: 14-day free trial available, no credit card required initially.
 
 ---
 
-## Configure DNS in GoDaddy
+## Verify Domain Ownership
 
-### Step 1: Access DNS Settings
+Before you can use email, you must prove you own `moyaskincare.com`.
+
+### Step 1: Choose Verification Method
+
+Google will show verification options:
+
+#### Option 1: TXT Record** (Recommended)
+
+- Add a TXT record to your domain's DNS
+
+#### Option 2: HTML File Upload*
+
+- Upload file to your website
+
+#### Option 3: Meta Tag
+
+- Add tag to your website's homepage
+
+Choose **TXT Record** (easiest for domains on GoDaddy).
+
+### Step 2: Get Verification Code
+
+Google will show something like:
+
+```bash
+TXT Record Name: @
+TXT Record Value: google-site-verification=abc123xyz456...
+```
+
+Copy this value and keep the page open.
+
+### Step 3: Add TXT Record in GoDaddy
 
 1. Log in to [GoDaddy DNS Management](https://dcc.godaddy.com/control/dns)
 2. Find `moyaskincare.com`
 3. Click "DNS" button
+4. Scroll to TXT Records section
+5. Click "Add"
+6. **Type**: `TXT`
+7. **Name**: `@`
+8. **Value**: Paste the verification code
+9. **TTL**: `1 Hour`
+10. Click "Save"
 
-### Step 2: Remove Existing MX Records (If Any)
+### Step 4: Verify in Google
+
+1. Back in Google Workspace setup
+2. Click "Verify" or "Protect domain"
+3. Wait a few minutes for DNS propagation
+4. If it fails, wait 15 minutes and try again
+
+Once verified, you'll see a success message!
+
+---
+
+## Configure MX Records in GoDaddy
+
+MX records tell the internet to deliver email to Google's servers.
+
+### Step 1: Get Google MX Records
+
+Google will show you 5 MX records:
+
+```bash
+Priority 1:  ASPMX.L.GOOGLE.COM
+Priority 5:  ALT1.ASPMX.L.GOOGLE.COM
+Priority 5:  ALT2.ASPMX.L.GOOGLE.COM
+Priority 10: ALT3.ASPMX.L.GOOGLE.COM
+Priority 10: ALT4.ASPMX.L.GOOGLE.COM
+```
+
+### Step 2: Access GoDaddy DNS
+
+1. Log in to [GoDaddy DNS Management](https://dcc.godaddy.com/control/dns)
+2. Find `moyaskincare.com`
+3. Click "DNS"
+
+### Step 3: Remove Existing MX Records
 
 1. Scroll to MX (Mail Exchange) section
-2. If you see any existing MX records, delete them:
-   - Click "..." → "Delete"
+2. Delete ALL existing MX records:
+   - Click "..." → "Delete" for each record
    - Confirm deletion
 
-**Why?** GoDaddy sometimes adds default MX records that conflict.
+**Important**: Remove all old MX records to avoid conflicts.
 
-### Step 3: Add ImprovMX MX Records
+### Step 4: Add Google MX Records
 
-Add **first MX record**:
-1. Click "Add" under MX Records
-2. Type: `MX`
-3. Name: `@`
-4. Value: `mx1.improvmx.com`
-5. Priority: `10`
-6. TTL: `1 Hour` (default)
-7. Click "Save"
+Add each of the 5 Google MX records:
 
-Add **second MX record**:
-1. Click "Add" again
-2. Type: `MX`
-3. Name: `@`
-4. Value: `mx2.improvmx.com`
-5. Priority: `20`
-6. TTL: `1 Hour`
-7. Click "Save"
+**Record 1**:
 
-### Step 4: Add SPF Record (Recommended)
+- Type: `MX`
+- Name: `@`
+- Value: `ASPMX.L.GOOGLE.COM`
+- Priority: `1`
+- TTL: `1 Hour`
 
-This helps with email deliverability:
+**Record 2**:
 
-1. Click "Add" under TXT Records
-2. Type: `TXT`
-3. Name: `@`
-4. Value: `v=spf1 include:spf.improvmx.com ~all`
-5. TTL: `1 Hour`
-6. Click "Save"
+- Type: `MX`
+- Name: `@`
+- Value: `ALT1.ASPMX.L.GOOGLE.COM`
+- Priority: `5`
+- TTL: `1 Hour`
 
----
+**Record 3**:
 
-## Set Up Email Alias
+- Type: `MX`
+- Name: `@`
+- Value: `ALT2.ASPMX.L.GOOGLE.COM`
+- Priority: `5`
+- TTL: `1 Hour`
 
-### Step 1: Create info@ Alias
+**Record 4**:
 
-1. Back in ImprovMX dashboard
-2. Click on `moyaskincare.com`
-3. Click "Add alias"
-4. **Alias**: `info`
-5. **Forward to**: Your personal email (e.g., `you@gmail.com`)
-6. Click "Create alias"
+- Type: `MX`
+- Name: `@`
+- Value: `ALT3.ASPMX.L.GOOGLE.COM`
+- Priority: `10`
+- TTL: `1 Hour`
 
-Now emails to `info@moyaskincare.com` forward to your personal email!
+**Record 5**:
 
-### Step 2: Add More Aliases (Optional)
+- Type: `MX`
+- Name: `@`
+- Value: `ALT4.ASPMX.L.GOOGLE.COM`
+- Priority: `10`
+- TTL: `1 Hour`
 
-Create additional professional addresses:
-- `hello@moyaskincare.com` → your email
-- `support@moyaskincare.com` → your email
-- `orders@moyaskincare.com` → your email
+Click "Save" after each record.
 
-All free, all forward to same personal inbox.
+### Step 5: Verify MX Setup in Google
 
-### Step 3: Catch-All (Optional)
-
-Enable catch-all to receive ANY email to your domain:
-
-1. In ImprovMX domain settings
-2. Toggle "Catch-all" to ON
-3. Choose forward address
-
-Now `anything@moyaskincare.com` forwards to you.
+1. Back in Google Workspace Admin Console
+2. Click "Activate Gmail"
+3. Google will verify MX records (may take a few minutes)
+4. Once verified, Gmail is active!
 
 ---
 
-## Send Email From Custom Domain
+## Create Email Accounts
 
-To **reply** from `info@moyaskincare.com` instead of your personal email:
+Now create email addresses for your team.
 
-### Option 1: Gmail SMTP (Easiest)
+### Step 1: Access Admin Console
 
-1. Go to Gmail Settings → "Accounts and Import"
-2. Click "Add another email address"
-3. Name: "Moya Rituals"
-4. Email: `info@moyaskincare.com`
-5. Uncheck "Treat as an alias"
-6. Click "Next"
+1. Go to [admin.google.com](https://admin.google.com)
+2. Sign in with your admin account
 
-**SMTP Settings**:
-```
-SMTP Server: smtp.gmail.com
-Port: 587
-Username: your-gmail@gmail.com
-Password: Your Gmail app password
-```
+### Step 2: Add User
 
-7. Gmail will send verification email to `info@moyaskincare.com`
-8. Check your inbox (it'll forward) for confirmation link
-9. Click link to verify
+1. Click "Users" in the left sidebar
+2. Click "Add new user"
+3. Enter details:
+   - **First name**: Moya
+   - **Last name**: Rituals
+   - **Primary email**: `info`
+   - Full address will be: `info@moyaskincare.com`
+4. Create password or let Google generate one
+5. Click "Add new user"
 
-Now you can send from `info@moyaskincare.com` in Gmail!
+### Step 3: Create Additional Accounts (Optional)
 
-**Dropdown**: When composing, click "From" dropdown to choose address.
+Create more accounts as needed:
 
-### Option 2: ImprovMX SMTP (Advanced)
+- `support@moyaskincare.com`
+- `hello@moyaskincare.com`
+- `orders@moyaskincare.com`
 
-ImprovMX offers SMTP for **$9/month**:
-1. Upgrade to ImprovMX Premium
-2. Get SMTP credentials
-3. Add to any email client
+**Cost**: $6/month per account
+
+### Step 4: Email Aliases (Free Alternative)
+
+Instead of creating multiple accounts, use **aliases** (free):
+
+1. Click on a user (e.g., `info@moyaskincare.com`)
+2. Click "User information"
+3. Scroll to "Email aliases"
+4. Click "Add alternate email"
+5. Add aliases:
+   - `support@moyaskincare.com`
+   - `hello@moyaskincare.com`
+
+All aliases deliver to the same inbox, no extra cost!
+
+---
+
+## Access Your Email
+
+### Via Web (Gmail)
+
+1. Go to [mail.google.com](https://mail.google.com)
+2. Sign in with: `info@moyaskincare.com`
+3. Use the password you created
+4. You're in! Professional Gmail interface with your domain
+
+### Via Mobile App
+
+1. Download Gmail app (iOS/Android)
+2. Tap "Add account"
+3. Select "Google"
+4. Enter: `info@moyaskincare.com`
+5. Enter password
+6. Done! Email syncs across all devices
+
+### Via Desktop Client (Optional)
+
+You can use Outlook, Apple Mail, Thunderbird:
+
+- **IMAP Server**: `imap.gmail.com` (Port 993, SSL)
+- **SMTP Server**: `smtp.gmail.com` (Port 587, TLS)
+- **Username**: Full email address
+- **Password**: Your account password
 
 ---
 
@@ -215,6 +304,7 @@ ImprovMX offers SMTP for **$9/month**:
 3. Should arrive within 1-2 minutes
 
 **If delayed (10+ min)**:
+
 - DNS propagation not complete (wait up to 48 hours)
 - Check MX records in GoDaddy are correct
 - Use [MX Toolbox](https://mxtoolbox.com/) to verify: `moyaskincare.com`
@@ -231,6 +321,7 @@ Should show: `info@moyaskincare.com`
 ### Check Logs
 
 ImprovMX dashboard shows:
+
 - **Forwards**: All emails forwarded
 - **Errors**: Failed forwards
 - **Quota**: How many forwards used (unlimited on free)
@@ -246,6 +337,7 @@ If you need a real mailbox (not just forwarding):
 **Cost**: $6/user/month
 
 **Features**:
+
 - ✅ Professional Gmail interface
 - ✅ 30GB storage
 - ✅ Google Drive, Calendar, Meet included
@@ -253,6 +345,7 @@ If you need a real mailbox (not just forwarding):
 - ✅ Mobile apps
 
 **Setup**:
+
 1. Go to [workspace.google.com](https://workspace.google.com)
 2. Sign up with `moyaskincare.com`
 3. Verify domain ownership
@@ -264,6 +357,7 @@ If you need a real mailbox (not just forwarding):
 **Cost**: $1/user/month (Lite plan)
 
 **Features**:
+
 - ✅ 5GB storage
 - ✅ Webmail interface
 - ✅ Mobile apps
@@ -277,6 +371,7 @@ If you need a real mailbox (not just forwarding):
 **Cost**: $5.99-$11.99/year
 
 **Features**:
+
 - ✅ Included with some GoDaddy hosting plans
 - ✅ Basic webmail
 - ✅ 10-25GB storage
@@ -313,12 +408,14 @@ If you need a real mailbox (not just forwarding):
 ### Emails Not Arriving
 
 **Check**:
+
 1. MX records correct in GoDaddy
 2. DNS propagation complete (use [DNSchecker](https://dnschecker.org))
 3. Check spam folder in personal email
 4. ImprovMX logs for errors
 
 **MX Toolbox Test**:
+
 1. Go to [mxtoolbox.com/SuperTool.aspx](https://mxtoolbox.com/SuperTool.aspx)
 2. Enter: `moyaskincare.com`
 3. Should show `mx1.improvmx.com` and `mx2.improvmx.com`
@@ -326,6 +423,7 @@ If you need a real mailbox (not just forwarding):
 ### Emails Going to Spam
 
 **Solutions**:
+
 1. Add SPF record (see above)
 2. Ask recipient to whitelist `info@moyaskincare.com`
 3. Avoid spam trigger words in content
@@ -334,6 +432,7 @@ If you need a real mailbox (not just forwarding):
 ### Can't Send From Custom Domain
 
 **Gmail SMTP Issues**:
+
 1. Enable 2-factor auth in Google Account
 2. Generate "App Password" (not regular password)
 3. Use app password in Gmail SMTP settings
@@ -353,6 +452,7 @@ If you need a real mailbox (not just forwarding):
 ### When to Upgrade
 
 Upgrade to ImprovMX Premium ($9/mo) if you need:
+
 - SMTP sending (send from custom domain)
 - Multiple team members
 - Priority support
@@ -366,7 +466,7 @@ If you have team members:
 
 ### Option 1: Forward to Multiple Emails (ImprovMX Free)
 
-```
+```bash
 info@moyaskincare.com → you@gmail.com, partner@gmail.com
 ```
 
@@ -374,7 +474,7 @@ Both receive all emails to `info@`.
 
 ### Option 2: Role-Based Aliases (ImprovMX Free)
 
-```
+```bash
 info@moyaskincare.com → you@gmail.com
 support@moyaskincare.com → partner@gmail.com
 orders@moyaskincare.com → you@gmail.com
@@ -385,7 +485,8 @@ Different roles go to different people.
 ### Option 3: Real Mailboxes (Google Workspace)
 
 Each person has their own:
-```
+
+```bash
 yourname@moyaskincare.com
 partner@moyaskincare.com
 ```
@@ -411,7 +512,8 @@ After email is set up:
 2. **Update Website** - Add `mailto:info@moyaskincare.com` links
 3. **Configure Brevo** - Set "From" address to `info@moyaskincare.com`
 4. **Professional Signature** - Add to Gmail signature:
-   ```
+
+   ```bash
    Moya Rituals
    Calm Skin. Clear Head.
    www.moyaskincare.com
@@ -421,13 +523,13 @@ After email is set up:
 
 ## Resources
 
-- **ImprovMX Dashboard**: https://app.improvmx.com
-- **ImprovMX Docs**: https://improvmx.com/guides
-- **MX Toolbox**: https://mxtoolbox.com (test your MX records)
-- **DNS Checker**: https://dnschecker.org (check propagation)
+- **ImprovMX Dashboard**: <https://app.improvmx.com>
+- **ImprovMX Docs**: <https://improvmx.com/guides>
+- **MX Toolbox**: <https://mxtoolbox.com> (test your MX records)
+- **DNS Checker**: <https://dnschecker.org> (check propagation)
 
 ---
 
 ## Questions?
 
-Test email: info@moyaskincare.com (once setup is complete!)
+Test email: <info@moyaskincare.com> (once setup is complete!)
