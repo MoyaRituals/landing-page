@@ -20,7 +20,8 @@
       "Bash(git log:*)",
       "Bash(npm run emails:deploy:*)",
       "Bash(npm run emails:build:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
