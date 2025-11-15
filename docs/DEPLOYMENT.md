@@ -88,9 +88,11 @@ Before deploying, add:
 
 1. Click "Site settings" → "Environment variables"
 2. Add each variable:
-   - `NEXT_PUBLIC_BREVO_API_KEY` = your_brevo_key
-   - `NEXT_PUBLIC_BREVO_LIST_ID` = your_list_id
-   - `NEXT_PUBLIC_GA_MEASUREMENT_ID` = G-XXXXXXXXXX
+   - `BREVO_API_KEY` = your_brevo_key (server-side only)
+   - `BREVO_LIST_ID` = your_list_id (server-side only)
+   - `BREVO_TEMPLATE_WELCOME_A` = template_id_for_variant_a
+   - `BREVO_TEMPLATE_WELCOME_B` = template_id_for_variant_b
+   - `NEXT_PUBLIC_GA_MEASUREMENT_ID` = G-XXXXXXXXXX (client-side)
 
 ### Step 5: Deploy
 
@@ -160,11 +162,13 @@ Connect `moyaskincare.com` to your Netlify site.
 Add these in Netlify Site Settings → Environment Variables:
 
 ```bash
-# Brevo (Email Marketing)
-NEXT_PUBLIC_BREVO_API_KEY=xkeysib-xxxxx
-NEXT_PUBLIC_BREVO_LIST_ID=1
+# Brevo (Email Marketing) - Server-side only (used by Netlify Functions)
+BREVO_API_KEY=xkeysib-xxxxx
+BREVO_LIST_ID=1
+BREVO_TEMPLATE_WELCOME_A=123
+BREVO_TEMPLATE_WELCOME_B=456
 
-# Google Analytics
+# Google Analytics - Client-side (embedded in build)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
@@ -173,18 +177,30 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 1. Netlify Dashboard → Your Site → Site Settings
 2. Build & deploy → Environment
 3. Click "Add a variable"
-4. Key: `NEXT_PUBLIC_BREVO_API_KEY`
-5. Value: (paste your Brevo API key)
-6. Click "Create variable"
-7. Repeat for each variable
+4. Add each variable:
+   - Key: `BREVO_API_KEY`, Value: (paste your Brevo API key)
+   - Key: `BREVO_LIST_ID`, Value: (your list ID)
+   - Key: `BREVO_TEMPLATE_WELCOME_A`, Value: (variant A template ID)
+   - Key: `BREVO_TEMPLATE_WELCOME_B`, Value: (variant B template ID)
+   - Key: `NEXT_PUBLIC_GA_MEASUREMENT_ID`, Value: G-XXXXXXXXXX
+5. Click "Create variable" for each
 
 ### Security Note
 
-`NEXT_PUBLIC_*` variables are **exposed in the browser**. This is okay for:
-- Brevo **public** API key (designed for client-side use)
-- Google Analytics tracking ID (public by design)
+**Server-side variables** (no `NEXT_PUBLIC_` prefix):
 
-If you migrate to server features later, move sensitive keys to server-only env vars.
+- `BREVO_API_KEY`, `BREVO_LIST_ID`, `BREVO_TEMPLATE_*`
+- These are **ONLY** accessible to Netlify Functions (server-side)
+- They are **NEVER** exposed in the browser
+- Used for secure API calls
+
+**Client-side variables** (`NEXT_PUBLIC_` prefix):
+
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+- These are embedded in the browser JavaScript
+- Safe for public tracking IDs only
+
+**Important**: We use Netlify Functions (serverless functions) to keep API keys secure. All Brevo API calls happen server-side, never in the browser.
 
 ---
 
