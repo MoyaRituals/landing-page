@@ -1,0 +1,129 @@
+<mjml>
+  <mj-head>
+    <mj-title>Reserve Your Spot - Moya Rituals</mj-title>
+    <mj-preview>Thank you for reserving - exclusive preorder pricing secured</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" />
+      <mj-text font-size="16px" color="#2B2B2B" line-height="1.6" />
+      <mj-section padding="20px" />
+    </mj-attributes>
+    <mj-style>
+      .heading {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-weight: 400;
+        color: #2B2B2B;
+      }
+      .tagline {
+        font-style: italic;
+        color: #A68C84;
+      }
+      .highlight {
+        background-color: #F2EDE9;
+        padding: 20px;
+        border-left: 4px solid #A68C84;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#F2EDE9">
+    <!-- Header -->
+    <mj-section padding-bottom="0">
+      <mj-column>
+        <mj-text align="center" padding="40px 20px 20px" css-class="heading" font-size="36px" line-height="1.2">
+          Moya Rituals
+        </mj-text>
+        <mj-text align="center" padding="0 20px 30px" css-class="tagline" font-size="18px">
+          Calm Skin. Clear Head.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Main Content -->
+    <mj-section background-color="#ffffff" border-radius="8px" padding="40px 30px">
+      <mj-column>
+        <mj-text css-class="heading" font-size="28px" padding-bottom="20px">
+          Your Spot is Reserved
+        </mj-text>
+
+        <mj-text padding-bottom="20px">
+          Thank you for reserving your exclusive preorder access to Moya Rituals. You've secured special pricing available only to our early supporters.
+        </mj-text>
+
+        <mj-text padding-bottom="20px">
+          We're crafting skincare that goes beyond the surface—rooted in ancient wisdom, grounded in modern science, and designed to bring ritual into your daily routine.
+        </mj-text>
+
+        <!-- Highlight Box -->
+        <mj-table padding-top="10px" padding-bottom="30px">
+          <tr>
+            <td style="background-color: #F2EDE9; border-left: 4px solid #A68C84; padding: 20px;">
+              <div style="font-weight: 600; color: #A68C84; margin-bottom: 15px; font-size: 18px;">
+                Your Exclusive Benefits
+              </div>
+              <div style="margin-bottom: 8px;">✓ Preorder pricing (up to 25% off retail)</div>
+              <div style="margin-bottom: 8px;">✓ First access to limited launch quantities</div>
+              <div style="margin-bottom: 8px;">✓ Priority shipping when we launch</div>
+              <div>✓ Behind-the-scenes founder updates</div>
+            </td>
+          </tr>
+        </mj-table>
+
+        <mj-text padding-top="30px" padding-bottom="20px">
+          We'll notify you as soon as preorders open. Your exclusive pricing is locked in—no action needed right now.
+        </mj-text>
+
+        <!-- CTA Button -->
+        <mj-button
+          background-color="#A68C84"
+          color="#ffffff"
+          font-weight="500"
+          border-radius="24px"
+          padding="30px 0"
+          href="https://www.instagram.com/moyaskincare"
+        >
+          Follow Our Journey
+        </mj-button>
+      </mj-column>
+    </mj-section>
+
+    <!-- Product Teaser -->
+    <mj-section padding-top="30px" padding-bottom="20px">
+      <mj-column>
+        <mj-text align="center" css-class="heading" font-size="24px" padding-bottom="15px">
+          Coming Soon
+        </mj-text>
+        <mj-text align="center" color="#A68C84" padding-bottom="20px">
+          MindSerum & Ritual Mist
+        </mj-text>
+        <mj-text align="center" font-size="14px" line-height="1.8">
+          Skincare rituals that calm your skin and clear your mind.
+          <br/>
+          Rooted in ancient wisdom. Backed by science.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Social Links -->
+    <mj-section padding-top="20px" padding-bottom="10px">
+      <mj-column>
+        <mj-social font-size="14px" icon-size="32px" mode="horizontal" align="center">
+          <mj-social-element name="instagram" href="https://www.instagram.com/moyaskincare" background-color="#A68C84">
+          </mj-social-element>
+          <mj-social-element name="tiktok" href="https://www.tiktok.com/@moyaskincare" background-color="#A68C84">
+          </mj-social-element>
+        </mj-social>
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer -->
+    <mj-section padding-top="20px">
+      <mj-column>
+        <mj-text align="center" font-size="12px" color="#C9BCB2" padding-bottom="10px">
+          Moya Rituals • Calm Skin. Clear Head.
+        </mj-text>
+        <mj-text align="center" font-size="11px" color="#C9BCB2" padding-bottom="20px">
+          You're receiving this email because you reserved exclusive preorder access at moyaskincare.com
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
