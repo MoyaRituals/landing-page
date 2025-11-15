@@ -9,6 +9,14 @@
   publish = "out"
   autoLaunch = false
 
+# Don't redirect function calls
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = false
+
+# Redirect all other requests to index.html for client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
