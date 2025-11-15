@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "emails:build": "node scripts/build-email-templates.js",
+    "emails:upload": "node scripts/upload-email-templates.js",
+    "emails:deploy": "npm run emails:build && npm run emails:upload"
   },
   "keywords": [
     "skincare",
@@ -26,7 +29,9 @@
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
     "autoprefixer": "^10.4.21",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
+    "mjml": "^4.17.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.18",
     "typescript": "^5.9.3"

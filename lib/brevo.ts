@@ -19,7 +19,7 @@ interface BrevoContact {
 }
 
 /**
- * Submit email signup to Brevo
+ * Submit email signup to Brevo and send welcome email
  */
 export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData): Promise<any> {
   const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY
@@ -28,6 +28,7 @@ export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData
     throw new Error('Brevo API key not configured. Please add NEXT_PUBLIC_BREVO_API_KEY to your .env.local file.')
   }
 
+  // Add contact to list
   const contactData: BrevoContact = {
     email,
     attributes: {
@@ -35,11 +36,11 @@ export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData
       CTA_VARIANT: ctaVariant,
       SIGNUP_DATE: new Date().toISOString(),
     },
-    listIds: [parseInt(process.env.NEXT_PUBLIC_BREVO_LIST_ID || '1')], // Update with your list ID
+    listIds: [parseInt(process.env.NEXT_PUBLIC_BREVO_LIST_ID || '1')],
     updateEnabled: true, // Update if contact already exists
   }
 
-  const response = await fetch('https://api.brevo.com/v3/contacts', {
+  const contactResponse = await fetch('https://api.brevo.com/v3/contacts', {
     method: 'POST',
     headers: {
       'accept': 'application/json',
@@ -49,12 +50,62 @@ export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData
     body: JSON.stringify(contactData),
   })
 
-  if (!response.ok) {
-    const error = await response.json()
+  if (!contactResponse.ok) {
+    const error = await contactResponse.json()
     throw new Error(error.message || 'Failed to submit to Brevo')
   }
 
-  return response.json()
+  // Send welcome email using variant-specific template
+  await sendWelcomeEmail({ email, name, ctaVariant })
+
+  return contactResponse.json()
+}
+
+/**
+ * Send welcome email using Brevo template
+ */
+async function sendWelcomeEmail({ email, name, ctaVariant }: SignupData): Promise<void> {
+  const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY
+
+  if (!apiKey) {
+    console.error('Brevo API key not configured for sending emails')
+    return
+  }
+
+  // Get template ID based on variant
+  const templateId = ctaVariant === 'A'
+    ? process.env.BREVO_TEMPLATE_WELCOME_A
+    : process.env.BREVO_TEMPLATE_WELCOME_B
+
+  if (!templateId) {
+    console.error(`Welcome email template ID not configured for variant ${ctaVariant}`)
+    return
+  }
+
+  const emailData = {
+    to: [{ email, name: name || '' }],
+    templateId: parseInt(templateId),
+    params: {
+      FIRSTNAME: name || '',
+      CTA_VARIANT: ctaVariant,
+    }
+  }
+
+  const emailResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: {
+      'accept': 'application/json',
+      'api-key': apiKey,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(emailData),
+  })
+
+  if (!emailResponse.ok) {
+    const error = await emailResponse.json()
+    console.error('Failed to send welcome email:', error)
+    // Don't throw - we don't want to fail signup if email fails
+  }
 }
 
 /**
