@@ -3,6 +3,13 @@
   publish = "out"
   functions = "netlify/functions"
 
+[dev]
+  command = "npm run dev:next"
+  port = 3000
+  targetPort = 3000
+  publish = "out"
+  autoLaunch = false
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
