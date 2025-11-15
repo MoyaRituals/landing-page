@@ -55,10 +55,17 @@ export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData
     throw new Error(error.message || 'Failed to submit to Brevo')
   }
 
-  // Send welcome email using variant-specific template
-  await sendWelcomeEmail({ email, name, ctaVariant })
+  const responseData = await contactResponse.json()
 
-  return contactResponse.json()
+  // Only send welcome email for new contacts (not updates)
+  // 201 = Created (new contact), 204 = No Content (contact updated)
+  const isNewContact = contactResponse.status === 201
+
+  if (isNewContact) {
+    await sendWelcomeEmail({ email, name, ctaVariant })
+  }
+
+  return responseData
 }
 
 /**
