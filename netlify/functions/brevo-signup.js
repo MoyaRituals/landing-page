@@ -100,13 +100,14 @@ exports.handler = async (event, context) => {
     // Only send welcome email for new contacts (not updates)
     if (isNewContact) {
       const templateId = ctaVariant === 'A' ? templateIdA : templateIdB
+      const recipientName = (name || '').trim() || email
 
       if (templateId) {
         const emailData = {
-          to: [{ email, name: name || '' }],
+          to: [{ email, name: recipientName }],
           templateId: parseInt(templateId),
           params: {
-            FIRSTNAME: name || '',
+            FIRSTNAME: (name || '').trim(),
             CTA_VARIANT: ctaVariant,
           }
         }
