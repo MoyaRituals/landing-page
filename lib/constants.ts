@@ -101,6 +101,11 @@ export const CTA_VARIANTS: Record<CTAVariant, string> = {
   B: 'Preorder Your Ritual System',
 } as const
 
+export const CTA_SUBTEXT: Record<CTAVariant, string> = {
+  A: 'Join the waitlist for exclusive launch access',
+  B: 'Reserve now for exclusive preorder pricing',
+} as const
+
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/moyarituals', // Update with actual handle
   tiktok: 'https://tiktok.com/@moyarituals', // Update with actual handle

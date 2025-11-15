@@ -2,15 +2,36 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { BRAND_TAGLINE, BRAND_STATEMENT, CTA_VARIANTS } from '@/lib/constants'
+import { BRAND_TAGLINE, BRAND_STATEMENT, CTA_VARIANTS, CTA_SUBTEXT } from '@/lib/constants'
 import CTAButton from './CTAButton'
+import { useABTestVariant } from '@/hooks/useABTestVariant'
 
 export default function Hero() {
-  // Randomly assign A/B test variant (in production, you might want to use a more sophisticated method)
-  const variant = Math.random() < 0.5 ? 'A' : 'B'
+  const { variant, isLoaded } = useABTestVariant()
 
   const scrollToWaitlist = () => {
     document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Don't render CTA until variant is loaded to prevent flash
+  if (!isLoaded) {
+    return (
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-moya-warm-beige">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero_16x9.jpg"
+            alt="Moya Rituals Products"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-moya-warm-beige/60 via-transparent to-moya-warm-beige/80" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+          <div className="min-h-[400px]" />
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -71,7 +92,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-8 text-sm text-moya-charcoal/60"
           >
-            Join the waitlist for exclusive launch access
+            {CTA_SUBTEXT[variant]}
           </motion.p>
         </motion.div>
       </div>
