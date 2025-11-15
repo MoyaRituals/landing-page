@@ -7,7 +7,7 @@
  * Creates new templates or updates existing ones based on template name.
  *
  * Requirements:
- *   - NEXT_PUBLIC_BREVO_API_KEY environment variable must be set in .env.local
+ *   - BREVO_API_KEY environment variable must be set in .env.local
  *   - Email templates must be built first (run build-email-templates.js)
  *
  * Usage:
@@ -22,7 +22,7 @@ const fs = require('fs')
 const path = require('path')
 
 const BUILD_DIR = path.join(__dirname, '../emails/build')
-const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY
+const BREVO_API_KEY = process.env.BREVO_API_KEY
 
 // Template metadata
 const TEMPLATES = {
@@ -132,9 +132,9 @@ async function main() {
 
   // Validate API key
   if (!BREVO_API_KEY) {
-    console.error('❌ Error: NEXT_PUBLIC_BREVO_API_KEY environment variable not set')
+    console.error('❌ Error: BREVO_API_KEY environment variable not set')
     console.error('   Please set it in your .env.local file')
-    console.error('   Example: NEXT_PUBLIC_BREVO_API_KEY=your_api_key_here')
+    console.error('   Example: BREVO_API_KEY=your_api_key_here')
     process.exit(1)
   }
 

@@ -121,31 +121,64 @@ cp .env.example .env.local
 Edit `.env.local`:
 
 ```bash
-# Replace with your actual values
-NEXT_PUBLIC_BREVO_API_KEY=xkeysib-abc123xyz456...
-NEXT_PUBLIC_BREVO_LIST_ID=123
+# Replace with your actual values (server-side only, no NEXT_PUBLIC_ prefix)
+BREVO_API_KEY=xkeysib-abc123xyz456...
+BREVO_LIST_ID=123
+BREVO_TEMPLATE_WELCOME_A=456
+BREVO_TEMPLATE_WELCOME_B=789
 ```
 
-**Important**:
+**Important Security Notes**:
 
-- `NEXT_PUBLIC_` prefix is required (makes it available client-side)
-- Never commit `.env.local` to git (it's in `.gitignore`)
+- ❌ **DO NOT** use `NEXT_PUBLIC_` prefix for API keys
+- ✅ These variables are server-side only (used by Netlify Functions)
+- ✅ API keys are NEVER exposed to the browser
+- ✅ Never commit `.env.local` to git (it's in `.gitignore`)
 
-### Step 3: Add to Netlify (for Production)
+**Why server-side only?**: Our landing page uses Next.js static export, which runs in the browser. To keep API keys secure, we use Netlify Functions (serverless functions) that run on the server and handle all Brevo API calls.
 
-See [DEPLOYMENT.md](DEPLOYMENT.md#environment-variables) for adding these to Netlify.
+### Step 3: Get Email Template IDs
+
+After creating your email templates (see [EMAIL_TEMPLATES.md](EMAIL_TEMPLATES.md)):
+
+1. Run: `npm run emails:deploy`
+2. Copy the template IDs from the output
+3. Add them to `.env.local`:
+
+```bash
+BREVO_TEMPLATE_WELCOME_A=456
+BREVO_TEMPLATE_WELCOME_B=789
+```
+
+### Step 4: Add to Netlify (for Production)
+
+1. Go to [Netlify Dashboard](https://app.netlify.com)
+2. Select your site
+3. Go to **Site Settings** → **Environment Variables**
+4. Click **Add a variable**
+5. Add each variable:
+   - Key: `BREVO_API_KEY`, Value: `xkeysib-abc123...`
+   - Key: `BREVO_LIST_ID`, Value: `123`
+   - Key: `BREVO_TEMPLATE_WELCOME_A`, Value: `456`
+   - Key: `BREVO_TEMPLATE_WELCOME_B`, Value: `789`
+6. **Trigger new deploy** (env vars only load at build time)
+
+See [NETLIFY_FUNCTIONS.md](NETLIFY_FUNCTIONS.md) for complete serverless functions guide.
 
 ---
 
 ## Test Integration
 
-### Step 1: Test Locally
+### Step 1: Test Locally with Netlify Functions
 
 1. Start dev server: `npm run dev`
-2. Open [http://localhost:3000](http://localhost:3000)
-3. Scroll to "Join the Waitlist"
-4. Submit your email
-5. Check for success message
+2. Netlify CLI will start on port 8888
+3. Open [http://localhost:8888](http://localhost:8888)
+4. Scroll to "Join the Waitlist"
+5. Submit your email
+6. Check for success message
+
+**Note**: We use `npm run dev` (which runs `netlify dev`) instead of `next dev` to test the serverless functions locally. Netlify CLI automatically starts Next.js and the Functions server together.
 
 ### Step 2: Verify in Brevo
 
@@ -155,18 +188,31 @@ See [DEPLOYMENT.md](DEPLOYMENT.md#environment-variables) for adding these to Net
 4. Click the contact to see attributes:
    - `CTA_VARIANT`: A or B
    - `SIGNUP_DATE`: Today's date
+5. Check your inbox for the welcome email (if new contact)
 
-### Step 3: Check Browser Console
+### Step 3: Check Logs
 
-If something fails:
+**Browser Console** (F12):
 
-1. Open Browser DevTools (F12)
-2. Go to "Console" tab
-3. Look for error messages
-4. Common issues:
-   - "API key not configured" → Check `.env.local`
-   - "Invalid API key" → Regenerate key in Brevo
-   - "List not found" → Check list ID is correct
+- Network tab → Look for POST to `/.netlify/functions/brevo-signup`
+- Console tab → Check for JavaScript errors
+
+**Terminal** (where `npm run dev` is running):
+
+- See function invocation logs
+- See response status codes
+- See any server-side console.log() output
+
+**Common Issues**:
+
+| Error | Solution |
+|-------|----------|
+| "API key not configured" | Check `.env.local` exists and has `BREVO_API_KEY` |
+| "Invalid API key" | Regenerate key in Brevo, update `.env.local`, restart dev server |
+| "List not found" | Check `BREVO_LIST_ID` is correct in `.env.local` |
+| "Function not found" | Make sure you're using `npm run dev` (not `next dev`) |
+
+For detailed troubleshooting, see [NETLIFY_FUNCTIONS.md](NETLIFY_FUNCTIONS.md#troubleshooting).
 
 ---
 

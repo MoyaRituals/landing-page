@@ -19,100 +19,25 @@ interface BrevoContact {
 }
 
 /**
- * Submit email signup to Brevo and send welcome email
+ * Submit email signup via Netlify Function (secure, server-side)
  */
 export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData): Promise<any> {
-  const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY
-
-  if (!apiKey) {
-    throw new Error('Brevo API key not configured. Please add NEXT_PUBLIC_BREVO_API_KEY to your .env.local file.')
-  }
-
-  // Add contact to list
-  const contactData: BrevoContact = {
-    email,
-    attributes: {
-      FIRSTNAME: name || '',
-      CTA_VARIANT: ctaVariant,
-      SIGNUP_DATE: new Date().toISOString(),
-    },
-    listIds: [parseInt(process.env.NEXT_PUBLIC_BREVO_LIST_ID || '1')],
-    updateEnabled: true, // Update if contact already exists
-  }
-
-  const contactResponse = await fetch('https://api.brevo.com/v3/contacts', {
+  // Call Netlify serverless function instead of Brevo API directly
+  // This keeps API keys secure on the server
+  const response = await fetch('/.netlify/functions/brevo-signup', {
     method: 'POST',
     headers: {
-      'accept': 'application/json',
-      'api-key': apiKey,
-      'content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(contactData),
+    body: JSON.stringify({ email, name, ctaVariant }),
   })
 
-  if (!contactResponse.ok) {
-    const error = await contactResponse.json()
-    throw new Error(error.message || 'Failed to submit to Brevo')
+  if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.error || 'Failed to submit to Brevo')
   }
 
-  const responseData = await contactResponse.json()
-
-  // Only send welcome email for new contacts (not updates)
-  // 201 = Created (new contact), 204 = No Content (contact updated)
-  const isNewContact = contactResponse.status === 201
-
-  if (isNewContact) {
-    await sendWelcomeEmail({ email, name, ctaVariant })
-  }
-
-  return responseData
-}
-
-/**
- * Send welcome email using Brevo template
- */
-async function sendWelcomeEmail({ email, name, ctaVariant }: SignupData): Promise<void> {
-  const apiKey = process.env.NEXT_PUBLIC_BREVO_API_KEY
-
-  if (!apiKey) {
-    console.error('Brevo API key not configured for sending emails')
-    return
-  }
-
-  // Get template ID based on variant
-  const templateId = ctaVariant === 'A'
-    ? process.env.BREVO_TEMPLATE_WELCOME_A
-    : process.env.BREVO_TEMPLATE_WELCOME_B
-
-  if (!templateId) {
-    console.error(`Welcome email template ID not configured for variant ${ctaVariant}`)
-    return
-  }
-
-  const emailData = {
-    to: [{ email, name: name || '' }],
-    templateId: parseInt(templateId),
-    params: {
-      FIRSTNAME: name || '',
-      CTA_VARIANT: ctaVariant,
-    }
-  }
-
-  const emailResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
-    headers: {
-      'accept': 'application/json',
-      'api-key': apiKey,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(emailData),
-  })
-
-  if (!emailResponse.ok) {
-    const error = await emailResponse.json()
-    console.error('Failed to send welcome email:', error)
-    // Don't throw - we don't want to fail signup if email fails
-  }
+  return response.json()
 }
 
 /**
