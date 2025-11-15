@@ -3,6 +3,7 @@
 Complete guide to setting up Brevo (formerly Sendinblue) for email marketing and waitlist management.
 
 ## Table of Contents
+
 1. [Create Brevo Account](#create-brevo-account)
 2. [Get API Key](#get-api-key)
 3. [Create Contact List](#create-contact-list)
@@ -52,7 +53,7 @@ Perfect for MVP validation!
 
 1. Log in to [Brevo Dashboard](https://app.brevo.com)
 2. Click your name (top right) → "SMTP & API"
-3. Or go directly to: https://app.brevo.com/settings/keys/api
+3. Or go directly to: <https://app.brevo.com/settings/keys/api>
 
 ### Step 2: Create API Key
 
@@ -65,6 +66,7 @@ Perfect for MVP validation!
 ### API Key Types
 
 Brevo has two types:
+
 - **API v3 key** (what we're using) - For REST API access
 - **SMTP key** - For sending email via SMTP (not needed)
 
@@ -125,6 +127,7 @@ NEXT_PUBLIC_BREVO_LIST_ID=123
 ```
 
 **Important**:
+
 - `NEXT_PUBLIC_` prefix is required (makes it available client-side)
 - Never commit `.env.local` to git (it's in `.gitignore`)
 
@@ -156,6 +159,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md#environment-variables) for adding these to Net
 ### Step 3: Check Browser Console
 
 If something fails:
+
 1. Open Browser DevTools (F12)
 2. Go to "Console" tab
 3. Look for error messages
@@ -203,6 +207,7 @@ Now you can see conversion rates for each variant!
 ### When to Send
 
 After collecting signups, send:
+
 1. **Welcome Email** (immediately) - Thank them for joining
 2. **Launch Announcement** (when ready) - Products available
 3. **Exclusive Offer** (launch day) - Early bird pricing
@@ -269,6 +274,7 @@ Now every signup gets instant welcome email!
 ### Email Performance
 
 Brevo Dashboard shows:
+
 - **Open rate** (target: 20-30%)
 - **Click rate** (target: 2-5%)
 - **Unsubscribe rate** (< 0.5% is good)
@@ -277,6 +283,7 @@ Brevo Dashboard shows:
 ### Contact Growth
 
 Track daily:
+
 - Total contacts on list
 - Contacts by variant (A vs B)
 - Signup dates (when did spikes occur?)
@@ -284,6 +291,7 @@ Track daily:
 ### A/B Test Analysis
 
 Compare segments:
+
 1. Go to "Contacts" → "Segments"
 2. Compare "Variant A" vs "Variant B" size
 3. Calculate:
@@ -316,6 +324,7 @@ Compare segments:
 ### GDPR Compliance
 
 Brevo is GDPR compliant, but you should:
+
 - ✅ Only email people who signed up
 - ✅ Include unsubscribe link (automatic)
 - ✅ Have privacy policy on website
@@ -324,6 +333,7 @@ Brevo is GDPR compliant, but you should:
 ### List Hygiene
 
 Monthly:
+
 1. Remove hard bounces (invalid emails)
 2. Remove long-term non-openers (6+ months)
 3. Keep list engaged (better deliverability)
@@ -335,6 +345,7 @@ Monthly:
 ### API Error: "Invalid API key"
 
 **Solution**:
+
 1. Regenerate API key in Brevo
 2. Update `.env.local`
 3. Restart dev server: `npm run dev`
@@ -343,6 +354,7 @@ Monthly:
 ### Contacts Not Appearing
 
 **Check**:
+
 1. List ID is correct in `.env.local`
 2. Browser console for JavaScript errors
 3. Brevo dashboard → "Logs" → "API calls" for errors
@@ -351,12 +363,14 @@ Monthly:
 ### Duplicate Contacts
 
 Brevo automatically handles duplicates:
+
 - Same email = updates existing contact
 - `updateEnabled: true` in code merges data
 
 ### Emails Going to Spam
 
 **Fix**:
+
 1. Verify sender domain (see Best Practices)
 2. Ask subscribers to whitelist your email
 3. Avoid spam trigger words
@@ -376,6 +390,7 @@ If you exceed free tier:
 | **Enterprise** | Custom | Unlimited |
 
 **When to upgrade**:
+
 - Sending > 300 emails/day
 - Need advanced automation
 - Want phone support
@@ -397,13 +412,13 @@ For MVP validation, **free tier is perfect!**
 
 ## Resources
 
-- **Brevo Documentation**: https://developers.brevo.com
-- **API Reference**: https://developers.brevo.com/reference/getting-started-1
-- **Support**: support@brevo.com
-- **Status Page**: https://status.brevo.com
+- **Brevo Documentation**: <https://developers.brevo.com>
+- **API Reference**: <https://developers.brevo.com/reference/getting-started-1>
+- **Support**: <support@brevo.com>
+- **Status Page**: <https://status.brevo.com>
 
 ---
 
 ## Questions?
 
-Contact: info@moyaskincare.com
+Contact: <info@moyaskincare.com>
