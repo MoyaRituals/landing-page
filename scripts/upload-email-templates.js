@@ -82,6 +82,7 @@ async function uploadTemplate(htmlFile, metadata) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        templateName: metadata.name,
         subject: metadata.subject,
         sender: metadata.sender,
         htmlContent: htmlContent,
@@ -107,7 +108,7 @@ async function uploadTemplate(htmlFile, metadata) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: metadata.name,
+        templateName: metadata.name,
         subject: metadata.subject,
         sender: metadata.sender,
         htmlContent: htmlContent,
