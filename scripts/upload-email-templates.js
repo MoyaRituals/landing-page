@@ -7,14 +7,14 @@
  * Creates new templates or updates existing ones based on template name.
  *
  * Requirements:
- *   - BREVO_API_KEY environment variable must be set
+ *   - NEXT_PUBLIC_BREVO_API_KEY environment variable must be set in .env.local
  *   - Email templates must be built first (run build-email-templates.js)
  *
  * Usage:
- *   BREVO_API_KEY=your_api_key node scripts/upload-email-templates.js
- *
- * Or with .env file:
  *   node scripts/upload-email-templates.js
+ *
+ * Or use the combined command:
+ *   npm run emails:deploy
  */
 
 require('dotenv').config({ path: '.env.local' })
@@ -22,7 +22,7 @@ const fs = require('fs')
 const path = require('path')
 
 const BUILD_DIR = path.join(__dirname, '../emails/build')
-const BREVO_API_KEY = process.env.BREVO_API_KEY
+const BREVO_API_KEY = process.env.NEXT_PUBLIC_BREVO_API_KEY
 
 // Template metadata
 const TEMPLATES = {
@@ -131,8 +131,9 @@ async function main() {
 
   // Validate API key
   if (!BREVO_API_KEY) {
-    console.error('❌ Error: BREVO_API_KEY environment variable not set')
-    console.error('   Please set it in your .env.local file or as an environment variable')
+    console.error('❌ Error: NEXT_PUBLIC_BREVO_API_KEY environment variable not set')
+    console.error('   Please set it in your .env.local file')
+    console.error('   Example: NEXT_PUBLIC_BREVO_API_KEY=your_api_key_here')
     process.exit(1)
   }
 
