@@ -4,18 +4,19 @@ import type { Product } from '@/lib/constants'
 interface ProductCardProps {
   product: Product
   imageSrc: string
+  imagePosition?: string
 }
 
-export default function ProductCard({ product, imageSrc }: ProductCardProps) {
+export default function ProductCard({ product, imageSrc, imagePosition = 'object-[center_15%]' }: ProductCardProps) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
       {/* Product Image */}
-      <div className="relative h-80 bg-moya-warm-beige">
+      <div className="relative h-[40rem] bg-moya-warm-beige">
         <Image
           src={imageSrc}
           alt={product.name}
           fill
-          className="object-cover"
+          className={`object-cover ${imagePosition}`}
         />
       </div>
 

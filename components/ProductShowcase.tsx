@@ -31,8 +31,9 @@ export default function ProductShowcase() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <ProductCard
-              product={PRODUCTS.ritualMist}
-              imageSrc="/images/social_4x5.jpg"
+              product={PRODUCTS.mindSerum}
+              imageSrc="/images/social_1x1_mindserum.jpg"
+              imagePosition="object-[center_10%]"
             />
           </motion.div>
 
@@ -43,8 +44,9 @@ export default function ProductShowcase() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <ProductCard
-              product={PRODUCTS.mindSerum}
-              imageSrc="/images/social_1x1.jpg"
+              product={PRODUCTS.ritualMist}
+              imageSrc="/images/social_1x1_ritualmist.jpg"
+              imagePosition="object-[center_22%]"
             />
           </motion.div>
         </div>

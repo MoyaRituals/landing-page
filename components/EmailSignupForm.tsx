@@ -1,26 +1,20 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { submitToBrevo, trackConversion } from '@/lib/brevo'
 import { trackFormSubmit } from '@/lib/analytics'
-import { CTA_VARIANTS, type CTAVariant } from '@/lib/constants'
+import { CTA_VARIANTS } from '@/lib/constants'
 import CTAButton from './CTAButton'
+import { useABTestVariant } from '@/hooks/useABTestVariant'
 
 export default function EmailSignupForm() {
-  const [variant, setVariant] = useState<CTAVariant>('A')
+  const { variant, isLoaded } = useABTestVariant()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
-  const [mounted, setMounted] = useState(false)
-
-  // Assign A/B test variant on mount (client-side only)
-  useEffect(() => {
-    setVariant(Math.random() < 0.5 ? 'A' : 'B')
-    setMounted(true)
-  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,8 +44,8 @@ export default function EmailSignupForm() {
     }
   }
 
-  // Prevent hydration mismatch by not rendering variant-specific content until mounted
-  if (!mounted) {
+  // Prevent hydration mismatch by not rendering variant-specific content until loaded
+  if (!isLoaded) {
     return (
       <section id="waitlist" className="py-20 bg-gradient-to-b from-white to-moya-warm-beige">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
