@@ -101,8 +101,6 @@
         <mj-social font-size="14px" icon-size="32px" mode="horizontal" align="center">
           <mj-social-element name="instagram" href="https://www.instagram.com/moyaskincare" background-color="#A68C84">
           </mj-social-element>
-          <mj-social-element name="tiktok" href="https://www.tiktok.com/@moyaskincare" background-color="#A68C84">
-          </mj-social-element>
         </mj-social>
       </mj-column>
     </mj-section>

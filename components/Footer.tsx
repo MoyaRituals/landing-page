@@ -29,24 +29,14 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="text-sm font-heading font-semibold mb-3">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-moya-stone hover:text-moya-warm-beige transition-colors"
-              >
-                Instagram
-              </a>
-              <a
-                href={SOCIAL_LINKS.tiktok}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-moya-stone hover:text-moya-warm-beige transition-colors"
-              >
-                TikTok
-              </a>
-            </div>
+            <a
+              href={SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-moya-stone hover:text-moya-warm-beige transition-colors"
+            >
+              Instagram
+            </a>
           </div>
         </div>
 
