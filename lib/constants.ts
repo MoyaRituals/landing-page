@@ -107,8 +107,7 @@ export const CTA_SUBTEXT: Record<CTAVariant, string> = {
 } as const
 
 export const SOCIAL_LINKS = {
-  instagram: 'https://instagram.com/moyarituals', // Update with actual handle
-  tiktok: 'https://tiktok.com/@moyarituals', // Update with actual handle
+  instagram: 'https://instagram.com/moyaskincare',
 }
 
 export const CONTACT_EMAIL = 'info@moyaskincare.com'
