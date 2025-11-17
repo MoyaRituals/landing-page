@@ -1,0 +1,18 @@
+# CODEOWNERS file for Moya Rituals Landing Page
+#
+# This file defines who owns which parts of the codebase.
+# When a pull request is created, GitHub automatically requests
+# reviews from the code owners.
+#
+# Format: <file-pattern> @username
+#
+# Learn more: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+# Replace 'username' with your GitHub username
+* @mwesterholz
+
+# You can also specify owners for specific directories:
+# /docs/ @mwesterholz
+# /components/ @mwesterholz
+# *.md @mwesterholz
