@@ -23,29 +23,34 @@ export default function BenefitsGrid() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {BENEFITS.map((benefit, index) => (
-            <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="text-center"
-            >
-              {/* Icon */}
-              <div className="text-5xl mb-6">{benefit.icon}</div>
+          {BENEFITS.map((benefit, index) => {
+            const Icon = benefit.icon
+            return (
+              <motion.div
+                key={benefit.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="text-center"
+              >
+                {/* Icon */}
+                <div className="flex justify-center mb-6">
+                  <Icon className="w-12 h-12 text-moya-taupe" />
+                </div>
 
-              {/* Title */}
-              <h3 className="font-heading text-xl sm:text-2xl font-semibold text-moya-charcoal mb-3">
-                {benefit.title}
-              </h3>
+                {/* Title */}
+                <h3 className="font-heading text-xl sm:text-2xl font-semibold text-moya-charcoal mb-3">
+                  {benefit.title}
+                </h3>
 
-              {/* Description */}
-              <p className="font-body text-base text-moya-charcoal/70 leading-relaxed">
-                {benefit.description}
-              </p>
-            </motion.div>
-          ))}
+                {/* Description */}
+                <p className="font-body text-base text-moya-charcoal/70 leading-relaxed">
+                  {benefit.description}
+                </p>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>
