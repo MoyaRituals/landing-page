@@ -1,5 +1,7 @@
 // Moya Rituals Brand Constants
 
+import { Brain, Clock3, Sprout, LucideIcon } from 'lucide-react'
+
 // Types
 export type CTAVariant = 'A' | 'B'
 
@@ -13,7 +15,7 @@ export interface Product {
 export interface Benefit {
   title: string
   description: string
-  icon: string
+  icon: LucideIcon
 }
 
 export interface RitualStep {
@@ -64,17 +66,17 @@ export const BENEFITS = [
   {
     title: 'Neuro-Calming Formula',
     description: 'Botanicals chosen for their ability to support both skin health and nervous system balance.',
-    icon: '🧠',
+    icon: Brain,
   },
   {
     title: '3-Minute Ritual',
     description: 'A simple, effective routine that creates space for mindfulness in your busy day.',
-    icon: '⏱️',
+    icon: Clock3,
   },
   {
     title: 'Clean Ingredients',
     description: 'Formulated without harsh chemicals, focusing on gentle, effective botanicals.',
-    icon: '🌿',
+    icon: Sprout,
   },
 ]
 
