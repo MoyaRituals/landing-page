@@ -64,7 +64,7 @@ export default function CookieConsentBanner() {
                       },
                       {
                         name: 'cta_variant',
-                        description: 'Remembers which A/B test variant you saw',
+                        description: 'Remembers your preferences',
                         duration: 'Persistent',
                       },
                     ],
@@ -110,7 +110,7 @@ export default function CookieConsentBanner() {
       guiOptions: {
         consentModal: {
           layout: 'box inline',
-          position: 'bottom center',
+          position: 'bottom right',
           equalWeightButtons: false,
           flipButtons: false,
         },
