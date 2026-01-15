@@ -186,10 +186,9 @@ This will:
 
 ✨ All templates uploaded successfully!
 
-📋 Template IDs (add these to your .env.local):
+📋 Template ID (add to your .env.local):
 
    BREVO_TEMPLATE_WELCOME_A=1
-   BREVO_TEMPLATE_WELCOME_B=2
 ```
 
 ### Add Template IDs to Environment
@@ -198,7 +197,6 @@ Copy the template IDs to your `.env.local`:
 
 ```bash
 BREVO_TEMPLATE_WELCOME_A=1
-BREVO_TEMPLATE_WELCOME_B=2
 ```
 
 **Important**: Also add these to your Netlify environment variables when deploying!
@@ -247,16 +245,13 @@ BREVO_TEMPLATE_WELCOME_B=2
 
 ---
 
-## A/B Testing
+## Welcome Email Flow
 
 ### How It Works
 
 1. User signs up on landing page
-2. A/B variant is randomly assigned (stored in localStorage)
-3. Contact is added to Brevo with `CTA_VARIANT` attribute
-4. Welcome email is sent using variant-specific template:
-   - **Variant A** → `BREVO_TEMPLATE_WELCOME_A`
-   - **Variant B** → `BREVO_TEMPLATE_WELCOME_B`
+2. Contact is added to Brevo with `CTA_VARIANT` attribute (set to 'A' for "Join the Waitlist")
+3. Welcome email is sent using the welcome template: `BREVO_TEMPLATE_WELCOME_A`
 
 ### Measuring Results
 
@@ -335,9 +330,9 @@ To add more variants:
 
 **Possible causes**:
 
-1. **Template IDs not set**:
-   - Check `.env.local` has `BREVO_TEMPLATE_WELCOME_A` and `BREVO_TEMPLATE_WELCOME_B`
-   - IDs match templates in Brevo dashboard
+1. **Template ID not set**:
+   - Check `.env.local` has `BREVO_TEMPLATE_WELCOME_A`
+   - ID matches template in Brevo dashboard
 
 2. **API Key issues**:
    - API key has "Send transactional emails" permission

@@ -2,13 +2,12 @@
  * Netlify Serverless Function - Brevo Signup
  *
  * Handles email signups securely by keeping API keys server-side.
- * Adds contact to Brevo and sends variant-specific welcome email.
+ * Adds contact to Brevo and sends welcome email.
  *
  * Environment variables required (set in Netlify dashboard):
  *   - BREVO_API_KEY
  *   - BREVO_LIST_ID
- *   - BREVO_TEMPLATE_WELCOME_A
- *   - BREVO_TEMPLATE_WELCOME_B
+ *   - BREVO_TEMPLATE_WELCOME_A (Welcome email template)
  */
 
 exports.handler = async (event, context) => {
@@ -31,28 +30,23 @@ exports.handler = async (event, context) => {
     }
   }
 
-  const { email, name = '', ctaVariant } = body
+  const { email, name = '', ctaVariant = 'A' } = body
 
   // Validate inputs
-  if (!email || !ctaVariant) {
+  if (!email) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: 'Email and ctaVariant are required' })
+      body: JSON.stringify({ error: 'Email is required' })
     }
   }
 
-  if (ctaVariant !== 'A' && ctaVariant !== 'B') {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: 'ctaVariant must be "A" or "B"' })
-    }
-  }
+  // Default to 'A' for backward compatibility, accept 'A' or 'B' for historical data
+  const variant = ctaVariant || 'A'
 
   // Get environment variables
   const apiKey = process.env.BREVO_API_KEY
   const listId = process.env.BREVO_LIST_ID
-  const templateIdA = process.env.BREVO_TEMPLATE_WELCOME_A
-  const templateIdB = process.env.BREVO_TEMPLATE_WELCOME_B
+  const templateId = process.env.BREVO_TEMPLATE_WELCOME_A
 
   if (!apiKey || !listId) {
     console.error('Missing required environment variables')
@@ -68,7 +62,7 @@ exports.handler = async (event, context) => {
       email,
       attributes: {
         FIRSTNAME: name || '',
-        CTA_VARIANT: ctaVariant,
+        CTA_VARIANT: variant,
         SIGNUP_DATE: new Date().toISOString(),
       },
       listIds: [parseInt(listId)],
@@ -99,7 +93,6 @@ exports.handler = async (event, context) => {
 
     // Only send welcome email for new contacts (not updates)
     if (isNewContact) {
-      const templateId = ctaVariant === 'A' ? templateIdA : templateIdB
       const recipientName = (name || '').trim() || email
 
       if (templateId) {
@@ -108,7 +101,7 @@ exports.handler = async (event, context) => {
           templateId: parseInt(templateId),
           params: {
             FIRSTNAME: (name || '').trim(),
-            CTA_VARIANT: ctaVariant,
+            CTA_VARIANT: variant,
           }
         }
 

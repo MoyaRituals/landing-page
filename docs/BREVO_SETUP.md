@@ -125,7 +125,6 @@ Edit `.env.local`:
 BREVO_API_KEY=xkeysib-abc123xyz456...
 BREVO_LIST_ID=123
 BREVO_TEMPLATE_WELCOME_A=456
-BREVO_TEMPLATE_WELCOME_B=789
 ```
 
 **Important Security Notes**:
@@ -147,7 +146,6 @@ After creating your email templates (see [EMAIL_TEMPLATES.md](EMAIL_TEMPLATES.md
 
 ```bash
 BREVO_TEMPLATE_WELCOME_A=456
-BREVO_TEMPLATE_WELCOME_B=789
 ```
 
 ### Step 4: Add to Netlify (for Production)
@@ -160,7 +158,6 @@ BREVO_TEMPLATE_WELCOME_B=789
    - Key: `BREVO_API_KEY`, Value: `xkeysib-abc123...`
    - Key: `BREVO_LIST_ID`, Value: `123`
    - Key: `BREVO_TEMPLATE_WELCOME_A`, Value: `456`
-   - Key: `BREVO_TEMPLATE_WELCOME_B`, Value: `789`
 6. **Trigger new deploy** (env vars only load at build time)
 
 See [NETLIFY_FUNCTIONS.md](NETLIFY_FUNCTIONS.md) for complete serverless functions guide.

@@ -104,7 +104,6 @@ Create `.env.local` in project root:
 BREVO_API_KEY=xkeysib-abc123...
 BREVO_LIST_ID=123
 BREVO_TEMPLATE_WELCOME_A=456
-BREVO_TEMPLATE_WELCOME_B=789
 
 # Google Analytics (client-side)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -125,7 +124,6 @@ Set the same variables in Netlify:
    - `BREVO_API_KEY`
    - `BREVO_LIST_ID`
    - `BREVO_TEMPLATE_WELCOME_A`
-   - `BREVO_TEMPLATE_WELCOME_B`
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID`
 
 ---

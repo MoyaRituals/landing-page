@@ -51,8 +51,7 @@ Before deploying, add (see [Environment Variables](#environment-variables) secti
 2. Add each variable:
    - `BREVO_API_KEY` = your_brevo_key (server-side only)
    - `BREVO_LIST_ID` = your_list_id (server-side only)
-   - `BREVO_TEMPLATE_WELCOME_A` = template_id_for_variant_a
-   - `BREVO_TEMPLATE_WELCOME_B` = template_id_for_variant_b
+   - `BREVO_TEMPLATE_WELCOME_A` = template_id_for_welcome_email
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID` = G-XXXXXXXXXX (client-side)
 
 ### Step 4: Deploy
@@ -134,7 +133,6 @@ Add these in Netlify Site Settings → Environment Variables:
 BREVO_API_KEY=xkeysib-xxxxx
 BREVO_LIST_ID=1
 BREVO_TEMPLATE_WELCOME_A=123
-BREVO_TEMPLATE_WELCOME_B=456
 
 # Google Analytics - Client-side (embedded in build)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -148,8 +146,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 4. Add each variable:
    - Key: `BREVO_API_KEY`, Value: (paste your Brevo API key)
    - Key: `BREVO_LIST_ID`, Value: (your list ID)
-   - Key: `BREVO_TEMPLATE_WELCOME_A`, Value: (variant A template ID)
-   - Key: `BREVO_TEMPLATE_WELCOME_B`, Value: (variant B template ID)
+   - Key: `BREVO_TEMPLATE_WELCOME_A`, Value: (welcome email template ID)
    - Key: `NEXT_PUBLIC_GA_MEASUREMENT_ID`, Value: G-XXXXXXXXXX
 5. Click "Create variable" for each
 
