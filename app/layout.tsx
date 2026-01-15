@@ -1,6 +1,7 @@
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import GoogleAnalytics from './GoogleAnalytics'
+import CookieConsent from '@/components/CookieConsent'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body>
+        <CookieConsent />
         <GoogleAnalytics />
         {children}
       </body>

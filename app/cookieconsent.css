@@ -1,0 +1,112 @@
+/* Custom Cookie Consent Styling - Moya Rituals Brand */
+
+/* Override default colors with Moya palette */
+:root {
+  --cc-bg: #f2ede9; /* Moya warm beige */
+  --cc-text: #2b2b2b; /* Moya charcoal */
+  --cc-btn-primary-bg: #a68c84; /* Moya taupe */
+  --cc-btn-primary-text: #ffffff;
+  --cc-btn-primary-hover-bg: #8f756e; /* Darker taupe */
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-text: #2b2b2b;
+  --cc-btn-secondary-border: #c9bcb2; /* Moya stone */
+  --cc-btn-secondary-hover-bg: #f2ede9;
+  --cc-separator-border-color: #c9bcb2;
+  --cc-toggle-on-bg: #a68c84;
+  --cc-toggle-off-bg: #c9bcb2;
+  --cc-toggle-on-knob-bg: #ffffff;
+  --cc-toggle-off-knob-bg: #ffffff;
+  --cc-cookie-category-block-bg: #ffffff;
+  --cc-cookie-category-block-border: #c9bcb2;
+  --cc-overlay-bg: rgba(43, 43, 43, 0.6);
+}
+
+/* Font styling to match site */
+#cc-main {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+#cc-main .cm__title,
+#cc-main .pm__title {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 600;
+}
+
+/* Button styling */
+#cc-main .cm__btn,
+#cc-main .pm__btn {
+  border-radius: 9999px; /* Fully rounded like site buttons */
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.75rem 1.5rem;
+}
+
+#cc-main .cm__btn--primary,
+#cc-main .pm__btn--primary {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#cc-main .cm__btn--primary:hover,
+#cc-main .pm__btn--primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+#cc-main .cm__btn--secondary {
+  border-width: 2px;
+}
+
+#cc-main .cm__btn--secondary:hover {
+  background-color: rgba(166, 140, 132, 0.05);
+}
+
+/* Modal styling */
+#cc-main .cm,
+#cc-main .pm {
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Link styling */
+#cc-main a {
+  color: #a68c84;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+#cc-main a:hover {
+  color: #8f756e;
+}
+
+/* Cookie table styling */
+#cc-main .cookie-table {
+  border-color: #c9bcb2;
+}
+
+#cc-main .cookie-table th {
+  background-color: #f2ede9;
+  color: #2b2b2b;
+  font-weight: 600;
+}
+
+#cc-main .cookie-table td {
+  border-color: #c9bcb2;
+}
+
+/* Toggle switch styling */
+#cc-main .section__toggle {
+  border-radius: 9999px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  #cc-main .cm {
+    margin: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  #cc-main .cm__btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
