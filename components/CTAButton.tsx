@@ -1,10 +1,8 @@
 'use client'
 
 import { trackCTAClick } from '@/lib/analytics'
-import type { CTAVariant } from '@/lib/constants'
 
 interface CTAButtonProps {
-  variant: CTAVariant
   text: string
   onClick?: () => void
   className?: string
@@ -12,14 +10,13 @@ interface CTAButtonProps {
 }
 
 export default function CTAButton({
-  variant,
   text,
   onClick,
   className = '',
   size = 'md'
 }: CTAButtonProps) {
   const handleClick = () => {
-    trackCTAClick(variant)
+    trackCTAClick('hero')
     onClick?.()
   }
 

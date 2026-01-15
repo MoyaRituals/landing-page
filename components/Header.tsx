@@ -2,17 +2,12 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useABTestVariant } from '@/hooks/useABTestVariant'
-import { CTA_VARIANTS } from '@/lib/constants'
+import { CTA_TEXT } from '@/lib/constants'
 import { trackCTAClick } from '@/lib/analytics'
 
 export default function Header() {
-  const { variant, isLoaded } = useABTestVariant()
-
   const handleCTAClick = () => {
-    if (isLoaded) {
-      trackCTAClick(variant, 'header')
-    }
+    trackCTAClick('header')
   }
 
   return (
@@ -35,9 +30,9 @@ export default function Header() {
           <a
             href="#waitlist"
             onClick={handleCTAClick}
-            className={`px-6 py-2.5 bg-moya-taupe text-white font-body font-medium rounded-full hover:bg-moya-taupe/90 transition-all duration-500 ${!isLoaded ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}
+            className="px-6 py-2.5 bg-moya-taupe text-white font-body font-medium rounded-full hover:bg-moya-taupe/90 transition-all duration-500"
           >
-            {isLoaded ? CTA_VARIANTS[variant] : ''}
+            {CTA_TEXT}
           </a>
         </div>
       </div>

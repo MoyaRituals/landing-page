@@ -4,12 +4,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { submitToBrevo, trackConversion } from '@/lib/brevo'
 import { trackFormSubmit } from '@/lib/analytics'
-import { CTA_VARIANTS } from '@/lib/constants'
-import CTAButton from './CTAButton'
-import { useABTestVariant } from '@/hooks/useABTestVariant'
+import { CTA_TEXT } from '@/lib/constants'
 
 export default function EmailSignupForm() {
-  const { variant, isLoaded } = useABTestVariant()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
@@ -25,12 +22,11 @@ export default function EmailSignupForm() {
       await submitToBrevo({
         email,
         name,
-        ctaVariant: variant,
       })
 
       // Track successful conversion
-      trackConversion(variant)
-      trackFormSubmit(variant, true)
+      trackConversion()
+      trackFormSubmit(true)
 
       setSuccess(true)
       setEmail('')
@@ -38,21 +34,10 @@ export default function EmailSignupForm() {
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Something went wrong. Please try again.'
       setError(errorMessage)
-      trackFormSubmit(variant, false)
+      trackFormSubmit(false)
     } finally {
       setLoading(false)
     }
-  }
-
-  // Prevent hydration mismatch by not rendering variant-specific content until loaded
-  if (!isLoaded) {
-    return (
-      <section id="waitlist" className="py-20 bg-gradient-to-b from-white to-moya-warm-beige">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center min-h-[400px]" />
-        </div>
-      </section>
-    )
   }
 
   return (
@@ -68,12 +53,10 @@ export default function EmailSignupForm() {
           {!success ? (
             <>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-moya-charcoal mb-4 text-balance">
-                {variant === 'A' ? 'Join the Waitlist' : 'Preorder Your Ritual System'}
+                Join the Waitlist
               </h2>
               <p className="font-body text-lg text-moya-charcoal/70 mb-8">
-                {variant === 'A'
-                  ? 'Be the first to know when we launch. Plus, get exclusive early access pricing.'
-                  : 'Reserve your Reset Duo now and enjoy exclusive preorder pricing.'}
+                Be the first to know when we launch. Plus, get exclusive early access pricing.
               </p>
 
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -86,6 +69,7 @@ export default function EmailSignupForm() {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Your name (optional)"
                       className="w-full px-6 py-3 rounded-full border-2 border-moya-stone/30 focus:border-moya-taupe focus:outline-none font-body text-base transition-colors"
+                      suppressHydrationWarning
                     />
                   </div>
 
@@ -98,6 +82,7 @@ export default function EmailSignupForm() {
                       placeholder="Your email address"
                       required
                       className="w-full px-6 py-3 rounded-full border-2 border-moya-stone/30 focus:border-moya-taupe focus:outline-none font-body text-base transition-colors"
+                      suppressHydrationWarning
                     />
                   </div>
 
@@ -126,7 +111,7 @@ export default function EmailSignupForm() {
                         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
                       `}
                     >
-                      {loading ? 'Submitting...' : CTA_VARIANTS[variant]}
+                      {loading ? 'Submitting...' : CTA_TEXT}
                     </button>
                   </div>
                 </div>

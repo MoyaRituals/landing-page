@@ -49,13 +49,13 @@ export function event({ action, category, label, value }: EventParams): void {
 }
 
 /**
- * Track CTA click (for A/B testing)
+ * Track CTA click
  */
-export function trackCTAClick(variant: 'A' | 'B', location: string = 'hero'): void {
+export function trackCTAClick(location: string = 'hero'): void {
   event({
     action: 'cta_click',
     category: 'engagement',
-    label: `${location}_variant_${variant}`,
+    label: location,
     value: 1,
   })
 }
@@ -63,11 +63,10 @@ export function trackCTAClick(variant: 'A' | 'B', location: string = 'hero'): vo
 /**
  * Track form submission
  */
-export function trackFormSubmit(variant: 'A' | 'B', success: boolean = true): void {
+export function trackFormSubmit(success: boolean = true): void {
   event({
     action: success ? 'form_submit_success' : 'form_submit_error',
     category: 'conversion',
-    label: `variant_${variant}`,
     value: success ? 1 : 0,
   })
 }

@@ -1,10 +1,8 @@
 // Brevo (formerly Sendinblue) API Integration
-import type { CTAVariant } from './constants'
 
 export interface SignupData {
   email: string
   name?: string
-  ctaVariant: CTAVariant
 }
 
 interface BrevoContact {
@@ -21,15 +19,16 @@ interface BrevoContact {
 /**
  * Submit email signup via Netlify Function (secure, server-side)
  */
-export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData): Promise<any> {
+export async function submitToBrevo({ email, name = '' }: SignupData): Promise<any> {
   // Call Netlify serverless function instead of Brevo API directly
   // This keeps API keys secure on the server
+  // Default to 'A' for backward compatibility with existing Brevo function
   const response = await fetch('/.netlify/functions/brevo-signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email, name, ctaVariant }),
+    body: JSON.stringify({ email, name, ctaVariant: 'A' }),
   })
 
   if (!response.ok) {
@@ -41,14 +40,13 @@ export async function submitToBrevo({ email, name = '', ctaVariant }: SignupData
 }
 
 /**
- * Track conversion event (A/B test)
+ * Track conversion event
  */
-export function trackConversion(variant: CTAVariant): void {
+export function trackConversion(): void {
   // Send to analytics
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'signup', {
       event_category: 'conversion',
-      event_label: `CTA_${variant}`,
       value: 1,
     })
   }

@@ -3,8 +3,6 @@
 import { Brain, Clock3, Sprout, LucideIcon } from 'lucide-react'
 
 // Types
-export type CTAVariant = 'A' | 'B'
-
 export interface Product {
   name: string
   tagline: string
@@ -98,15 +96,9 @@ export const RITUAL_STEPS = [
   },
 ]
 
-export const CTA_VARIANTS: Record<CTAVariant, string> = {
-  A: 'Join the Waitlist',
-  B: 'Preorder Your Ritual System',
-} as const
+export const CTA_TEXT = 'Join the Waitlist'
 
-export const CTA_SUBTEXT: Record<CTAVariant, string> = {
-  A: 'Join the waitlist for exclusive launch access',
-  B: 'Reserve now for exclusive preorder pricing',
-} as const
+export const CTA_SUBTEXT = 'Join the waitlist for exclusive launch access'
 
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/moyaskincare',
