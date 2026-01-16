@@ -98,7 +98,7 @@ export const RITUAL_STEPS = [
 
 export const CTA_TEXT = 'Join the Waitlist'
 
-export const CTA_SUBTEXT = 'Join the waitlist for exclusive launch access'
+export const CTA_SUBTEXT = 'Be the first to know when we launch. Plus, get 20% off your first order.'
 
 export const SOCIAL_LINKS = {
   instagram: 'https://instagram.com/moyaskincare',

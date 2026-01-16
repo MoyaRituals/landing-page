@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { BRAND_TAGLINE, BRAND_STATEMENT, CTA_TEXT, CTA_SUBTEXT } from '@/lib/constants'
-import CTAButton from './CTAButton'
+import { BRAND_TAGLINE, BRAND_STATEMENT, CTA_SUBTEXT } from '@/lib/constants'
 
 export default function Hero() {
   const scrollToWaitlist = () => {
@@ -47,25 +46,32 @@ export default function Hero() {
             <span className="inline-block">neuro-calming skincare</span> that brings calm to your skin and clarity to your mind.
           </p>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+          {/* Badge Button - Primary CTA */}
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            onClick={scrollToWaitlist}
+            className="mb-3 inline-block cursor-pointer hover:scale-110 hover:drop-shadow-2xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-moya-taupe focus:ring-offset-2 rounded-full"
+            aria-label="20% off - Join waitlist"
           >
-            <CTAButton
-              text={CTA_TEXT}
-              onClick={scrollToWaitlist}
-              size="lg"
+            <Image
+              src="/images/badge_full.svg"
+              alt="20% off for founding members - Join waitlist"
+              width={170}
+              height={170}
+              className="drop-shadow-lg"
+              priority
             />
-          </motion.div>
+          </motion.button>
 
           {/* Social Proof / Indicator */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 text-sm text-moya-charcoal/60"
+            className="mt-3 text-sm text-moya-charcoal/60"
           >
             {CTA_SUBTEXT}
           </motion.p>

@@ -1,5 +1,6 @@
 'use client'
 
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CTA_TEXT } from '@/lib/constants'
@@ -26,14 +27,29 @@ export default function Header() {
             />
           </Link>
 
-          {/* CTA Button */}
-          <a
+          {/* Right side: Badge + CTA Button */}
+          <motion.a
             href="#waitlist"
             onClick={handleCTAClick}
-            className="px-6 py-2.5 bg-moya-taupe text-white font-body font-medium rounded-full hover:bg-moya-taupe/90 transition-all duration-500"
+            whileTap={{ 
+              scale: 0.9,
+              transition: { type: "spring", stiffness: 400, damping: 10 }
+            }}
+            className="relative inline-flex items-center gap-3 px-6 pr-9 py-2.5 bg-moya-taupe text-white font-body font-medium rounded-full hover:bg-moya-taupe/90 transition-all duration-500"
           >
             {CTA_TEXT}
-          </a>
+            
+            {/* 20% Badge - Part of button */}
+            <div className="absolute -top-1 -right-1">
+              <Image
+                src="/images/badge_simple.svg"
+                alt="20% off"
+                width={50}
+                height={50}
+                className="w-7 h-7 drop-shadow-lg rotate-12"
+              />
+            </div>
+          </motion.a>
         </div>
       </div>
     </header>

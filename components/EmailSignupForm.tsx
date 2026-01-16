@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { submitToBrevo, trackConversion } from '@/lib/brevo'
 import { trackFormSubmit } from '@/lib/analytics'
 import { CTA_TEXT } from '@/lib/constants'
@@ -52,11 +53,21 @@ export default function EmailSignupForm() {
         >
           {!success ? (
             <>
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-moya-charcoal mb-4 text-balance">
-                Join the Waitlist
-              </h2>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8">
+                <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-moya-charcoal text-balance">
+                  Join the Waitlist
+                </h2>
+                <Image
+                  src="/images/badge_full.svg"
+                  alt="20% off"
+                  width={100}
+                  height={100}
+                  className="drop-shadow-lg flex-shrink-0"
+                  priority
+                />
+              </div>
               <p className="font-body text-lg text-moya-charcoal/70 mb-8">
-                Be the first to know when we launch. Plus, get exclusive early access pricing.
+                Be the first to know when we launch. Plus, get 20% off your first order.
               </p>
 
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
@@ -99,9 +110,10 @@ export default function EmailSignupForm() {
 
                   {/* Submit Button */}
                   <div className="pt-2">
-                    <button
+                    <motion.button
                       type="submit"
                       disabled={loading}
+                      whileTap={{ scale: loading ? 1 : 0.97 }}
                       className={`
                         w-full px-8 py-4 text-lg
                         bg-moya-taupe text-white font-body font-semibold rounded-full
@@ -111,8 +123,8 @@ export default function EmailSignupForm() {
                         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
                       `}
                     >
-                      {loading ? 'Submitting...' : CTA_TEXT}
-                    </button>
+                      {loading ? 'Joining...' : CTA_TEXT}
+                    </motion.button>
                   </div>
                 </div>
 
@@ -147,7 +159,7 @@ export default function EmailSignupForm() {
                 You're on the list!
               </h3>
               <p className="font-body text-lg text-moya-charcoal/70 mb-8">
-                We'll be in touch soon with exclusive early access details.
+                We'll be in touch soon with exclusive early access details and your 20% discount.
               </p>
               <p className="font-body text-base text-moya-charcoal/60">
                 Check your email for a confirmation message.

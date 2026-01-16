@@ -40,7 +40,7 @@ exports.handler = async (event, context) => {
     }
   }
 
-  // Default to 'A' for backward compatibility, accept 'A' or 'B' for historical data
+  // Default to 'A' for backward compatibility
   const variant = ctaVariant || 'A'
 
   // Get environment variables
