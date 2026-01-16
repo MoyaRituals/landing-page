@@ -31,14 +31,14 @@ export default function Header() {
           <motion.a
             href="#waitlist"
             onClick={handleCTAClick}
-            whileTap={{ 
+            whileTap={{
               scale: 0.9,
               transition: { type: "spring", stiffness: 400, damping: 10 }
             }}
             className="relative inline-flex items-center gap-3 px-6 pr-9 py-2.5 bg-moya-taupe text-white font-body font-medium rounded-full hover:bg-moya-taupe/90 transition-all duration-500"
           >
             {CTA_TEXT}
-            
+
             {/* 20% Badge - Part of button */}
             <div className="absolute -top-1 -right-1">
               <Image
@@ -46,7 +46,7 @@ export default function Header() {
                 alt="20% off"
                 width={50}
                 height={50}
-                className="w-7 h-7 drop-shadow-lg rotate-12"
+                className="w-10 h-10 drop-shadow-lg rotate-12"
               />
             </div>
           </motion.a>

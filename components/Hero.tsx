@@ -71,7 +71,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-3 text-sm text-moya-charcoal/60"
+            className="mt-3 text-2xl text-moya-charcoal/60"
           >
             {CTA_SUBTEXT}
           </motion.p>
