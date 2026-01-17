@@ -76,9 +76,12 @@ export default function EmailSignupForm() {
                   <div>
                     <input
                       type="text"
+                      name="name"
+                      id="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Your name (optional)"
+                      autoComplete="name"
                       className="w-full px-6 py-3 rounded-full border-2 border-moya-stone/30 focus:border-moya-taupe focus:outline-none font-body text-base transition-colors"
                       suppressHydrationWarning
                     />
@@ -88,9 +91,12 @@ export default function EmailSignupForm() {
                   <div>
                     <input
                       type="email"
+                      name="email"
+                      id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Your email address"
+                      autoComplete="email"
                       required
                       className="w-full px-6 py-3 rounded-full border-2 border-moya-stone/30 focus:border-moya-taupe focus:outline-none font-body text-base transition-colors"
                       suppressHydrationWarning
