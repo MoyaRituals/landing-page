@@ -14,10 +14,10 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero_16x9.jpg"
+          src="/images/hero_16x9_cropped.jpg"
           alt="Moya Rituals Products"
           fill
-          className="object-cover opacity-40"
+          className="object-cover object-[center_55%] opacity-40"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-moya-warm-beige/60 via-transparent to-moya-warm-beige/80" />

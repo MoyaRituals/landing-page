@@ -1,20 +1,41 @@
-/**
- * Netlify Serverless Function - Brevo Signup
- *
- * Handles email signups securely by keeping API keys server-side.
- * Adds contact to Brevo and sends welcome email.
- *
- * Environment variables required (set in Netlify dashboard):
- *   - BREVO_API_KEY
- *   - BREVO_LIST_ID
- *   - BREVO_TEMPLATE_WELCOME_A (Welcome email template)
- */
-
 exports.handler = async (event, context) => {
+  const origin = event.headers.origin || event.headers.Origin
+  const allowedOrigin = getAllowedOrigin(origin)
+
+  // If origin is provided but not allowed, reject the request
+  if (origin && allowedOrigin === null) {
+    return {
+      statusCode: 403,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ error: 'Origin not allowed' })
+    }
+  }
+
+  // Build CORS headers
+  // If no origin (same-origin request), we don't need CORS, but include headers for consistency
+  const corsHeaders = {
+    'Access-Control-Allow-Origin': allowedOrigin || 'https://moyaskincare.com',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json',
+  }
+
+  // Handle CORS preflight (OPTIONS) requests
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: corsHeaders,
+      body: JSON.stringify({ message: 'CORS preflight' })
+    }
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Method not allowed' })
     }
   }
@@ -26,6 +47,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 400,
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Invalid JSON in request body' })
     }
   }
@@ -36,6 +58,7 @@ exports.handler = async (event, context) => {
   if (!email) {
     return {
       statusCode: 400,
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Email is required' })
     }
   }
@@ -48,10 +71,11 @@ exports.handler = async (event, context) => {
   const listId = process.env.BREVO_LIST_ID
   const templateId = process.env.BREVO_TEMPLATE_WELCOME_A
 
+
   if (!apiKey || !listId) {
-    console.error('Missing required environment variables')
     return {
       statusCode: 500,
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Server configuration error' })
     }
   }
@@ -81,9 +105,9 @@ exports.handler = async (event, context) => {
 
     if (!contactResponse.ok) {
       const error = await contactResponse.json()
-      console.error('Brevo contact error:', error)
       return {
         statusCode: contactResponse.status,
+        headers: corsHeaders,
         body: JSON.stringify({ error: error.message || 'Failed to add contact to Brevo' })
       }
     }
@@ -117,19 +141,19 @@ exports.handler = async (event, context) => {
 
         if (!emailResponse.ok) {
           const error = await emailResponse.json()
-          console.error('Failed to send welcome email:', error)
+          console.error('❌ Failed to send welcome email:', error)
           // Don't fail the request if email fails - contact was still added
         }
+
+      } else {
+        console.error('❌ No template ID configured, skipping welcome email')
       }
     }
 
     // Return success
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*', // Adjust in production
-      },
+      headers: corsHeaders,
       body: JSON.stringify({
         success: true,
         message: isNewContact ? 'Contact added and welcome email sent' : 'Contact updated',
@@ -138,9 +162,9 @@ exports.handler = async (event, context) => {
     }
 
   } catch (error) {
-    console.error('Unexpected error:', error)
     return {
       statusCode: 500,
+      headers: corsHeaders,
       body: JSON.stringify({ error: 'Internal server error' })
     }
   }
