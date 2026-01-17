@@ -1,3 +1,31 @@
+// Determine allowed origin for CORS
+function getAllowedOrigin(origin) {
+  // Production domain
+  const PRODUCTION_DOMAIN = 'https://moyaskincare.com'
+
+  // If no origin header, it's a same-origin request (shouldn't happen with CORS, but be safe)
+  if (!origin) {
+    return PRODUCTION_DOMAIN
+  }
+
+  // Check if it's a localhost dev origin (any port)
+  if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+    return origin // Allow the specific dev origin (with port)
+  }
+
+  // Check if it's the production domain (with or without www)
+  if (origin === PRODUCTION_DOMAIN ||
+      origin === 'https://www.moyaskincare.com' ||
+      origin === 'http://moyaskincare.com' ||
+      origin === 'http://www.moyaskincare.com') {
+    return PRODUCTION_DOMAIN
+  }
+
+  // Default: reject (don't allow unknown origins)
+  // Return null to indicate origin should be rejected
+  return null
+}
+
 exports.handler = async (event, context) => {
   const origin = event.headers.origin || event.headers.Origin
   const allowedOrigin = getAllowedOrigin(origin)
@@ -141,12 +169,8 @@ exports.handler = async (event, context) => {
 
         if (!emailResponse.ok) {
           const error = await emailResponse.json()
-          console.error('❌ Failed to send welcome email:', error)
           // Don't fail the request if email fails - contact was still added
         }
-
-      } else {
-        console.error('❌ No template ID configured, skipping welcome email')
       }
     }
 
