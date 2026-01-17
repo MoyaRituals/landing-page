@@ -1,7 +1,7 @@
 <mjml>
   <mj-head>
-    <mj-title>Your 20% Launch Discount is Reserved - Moya Rituals</mj-title>
-    <mj-preview>Your discount code inside: FOUNDER20 - Reserve your spot for launch</mj-preview>
+    <mj-title>Welcome to Moya Rituals</mj-title>
+    <mj-preview>Thank you for joining the waitlist - exclusive launch access awaits</mj-preview>
     <mj-attributes>
       <mj-all font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" />
       <mj-text font-size="16px" color="#2B2B2B" line-height="1.6" />
@@ -17,96 +17,51 @@
         font-style: italic;
         color: #A68C84;
       }
-      .discount-code {
-        font-family: 'Courier New', monospace;
-        font-size: 28px;
-        font-weight: bold;
-        color: #A68C84;
-        letter-spacing: 3px;
-        background-color: #F2EDE9;
-        padding: 15px 30px;
-        border-radius: 8px;
-        display: inline-block;
-        margin: 20px 0;
-      }
     </mj-style>
   </mj-head>
   <mj-body background-color="#F2EDE9">
-    <!-- Header with Logo -->
+    <!-- Header -->
     <mj-section padding-bottom="0">
       <mj-column>
-        <!-- Logo will be embedded as base64 -->
-        <mj-image 
-          width="180px" 
-          align="center" 
-          src="https://moyaskincare.com/images/logo_primary.png"
-          alt="Moya Rituals"
-          padding="30px 20px 10px"
-        />
-        <mj-text align="center" padding="10px 20px 20px" css-class="tagline" font-size="16px">
+        <mj-text align="center" padding="40px 20px 20px" css-class="heading" font-size="36px" line-height="1.2">
+          Moya Rituals
+        </mj-text>
+        <mj-text align="center" padding="0 20px 30px" css-class="tagline" font-size="18px">
           Calm Skin. Clear Head.
         </mj-text>
       </mj-column>
     </mj-section>
 
-    <!-- 20% Off Badge -->
-    <mj-section padding="10px">
-      <mj-column>
-        <mj-text align="center" padding="10px" background-color="#A68C84" color="#ffffff" border-radius="24px" font-weight="600" font-size="14px">
-          🎉 LAUNCH OFFER: 20% OFF
-        </mj-text>
-      </mj-column>
-    </mj-section>
-
     <!-- Main Content -->
-    <mj-section background-color="#ffffff" border-radius="12px" padding="40px 30px">
+    <mj-section background-color="#ffffff" border-radius="8px" padding="40px 30px">
       <mj-column>
-        <mj-text css-class="heading" font-size="32px" padding-bottom="15px" align="center">
-          Your 20% Discount is Reserved!
+        <mj-text css-class="heading" font-size="28px" padding-bottom="20px">
+          Welcome to the Journey
         </mj-text>
 
-        <mj-text padding-bottom="25px" align="center" font-size="17px">
-          Thank you for reserving your spot. You're now part of an exclusive group of founding members who will receive first access when we launch.
+        <mj-text padding-bottom="20px">
+          Thank you for joining the Moya Rituals waitlist. You're now part of an exclusive community that will receive first access when we launch.
         </mj-text>
 
-        <!-- Discount Code Box -->
-        <mj-text align="center" padding-bottom="10px" font-weight="600" font-size="14px" color="#A68C84">
-          YOUR DISCOUNT CODE:
-        </mj-text>
-        
-        <mj-text align="center" padding-bottom="25px">
-          <div class="discount-code">FOUNDER20</div>
+        <mj-text padding-bottom="20px">
+          We're crafting skincare that goes beyond the surface, rooted in ancient wisdom, grounded in modern science, and designed to bring ritual into your daily routine.
         </mj-text>
 
-        <mj-text padding-bottom="25px" align="center" font-size="15px" color="#666666">
-          Save this code! You'll use it at checkout to get 20% off your first order when we launch.
-        </mj-text>
-
-        <!-- Divider -->
-        <mj-divider border-color="#C9BCB2" border-width="1px" padding="20px 0" />
-
-        <mj-text padding-bottom="20px" padding-top="10px" font-weight="600" color="#A68C84" font-size="18px">
+        <mj-text padding-bottom="30px" font-weight="600" color="#A68C84">
           What happens next?
         </mj-text>
 
-        <mj-text padding-bottom="12px" padding-left="10px">
-          <span style="color: #A68C84; margin-right: 8px;">✓</span> We'll email you updates as we finalize the formula
+        <mj-text padding-bottom="10px" padding-left="20px">
+          ✓ You'll be the first to know when we launch
         </mj-text>
-        <mj-text padding-bottom="12px" padding-left="10px">
-          <span style="color: #A68C84; margin-right: 8px;">✓</span> You'll be notified 48 hours before launch
+        <mj-text padding-bottom="10px" padding-left="20px">
+          ✓ Exclusive early access to our products
         </mj-text>
-        <mj-text padding-bottom="12px" padding-left="10px">
-          <span style="color: #A68C84; margin-right: 8px;">✓</span> Use code <strong>FOUNDER20</strong> for 20% off your first order
+        <mj-text padding-bottom="10px" padding-left="20px">
+          ✓ Behind-the-scenes updates on our journey
         </mj-text>
-        <mj-text padding-bottom="12px" padding-left="10px">
-          <span style="color: #A68C84; margin-right: 8px;">✓</span> No payment required now
-        </mj-text>
-        <mj-text padding-bottom="25px" padding-left="10px">
-          <span style="color: #A68C84; margin-right: 8px;">✓</span> No obligation to purchase
-        </mj-text>
-
-        <mj-text padding-bottom="20px" font-size="15px" line-height="1.7">
-          Your support means everything to us. By reserving your spot, you're helping us bring this vision to life—skincare that goes beyond the surface, rooted in the connection between skin health and nervous system balance.
+        <mj-text padding-bottom="30px" padding-left="20px">
+          ✓ Special launch pricing (waitlist only)
         </mj-text>
 
         <!-- CTA Button -->
@@ -115,91 +70,27 @@
           color="#ffffff"
           font-weight="500"
           border-radius="24px"
-          padding="25px 0"
+          padding="30px 0"
           href="https://www.instagram.com/moyaskincare"
-          font-size="15px"
         >
-          Follow Our Journey on Instagram
+          Follow Our Journey
         </mj-button>
       </mj-column>
     </mj-section>
 
-    <!-- Product Preview Section -->
+    <!-- Product Teaser -->
     <mj-section padding-top="30px" padding-bottom="20px">
       <mj-column>
-        <mj-text align="center" css-class="heading" font-size="26px" padding-bottom="12px">
-          What You're Reserving
+        <mj-text align="center" css-class="heading" font-size="24px" padding-bottom="15px">
+          Coming Soon
         </mj-text>
-        <mj-text align="center" font-size="15px" line-height="1.7" color="#666666" padding-bottom="25px">
-          Neuro-calming skincare that brings ritual into your daily routine
+        <mj-text align="center" color="#A68C84" padding-bottom="20px">
+          MindSerum &amp; Ritual Mist
         </mj-text>
-      </mj-column>
-    </mj-section>
-
-    <!-- Product Cards -->
-    <mj-section background-color="#ffffff" border-radius="12px" padding="25px 20px">
-      <mj-column>
-        <mj-text font-weight="600" font-size="18px" color="#2B2B2B" padding-bottom="8px">
-          MindSerum™
-        </mj-text>
-        <mj-text font-size="14px" color="#A68C84" padding-bottom="10px">
-          Neuro-Calming Serum
-        </mj-text>
-        <mj-text font-size="14px" line-height="1.6" padding-bottom="15px">
-          Adaptogens + neuro-calming botanicals to soothe stressed skin and support your nervous system.
-        </mj-text>
-        <mj-text font-size="15px" color="#666666">
-          <span style="text-decoration: line-through;">$68</span>
-          <span style="color: #A68C84; font-weight: 600; margin-left: 8px;">$54.40</span>
-          <span style="font-size: 13px; color: #999999; margin-left: 6px;">(your price)</span>
-        </mj-text>
-      </mj-column>
-    </mj-section>
-
-    <mj-section background-color="#ffffff" border-radius="12px" padding="25px 20px">
-      <mj-column>
-        <mj-text font-weight="600" font-size="18px" color="#2B2B2B" padding-bottom="8px">
-          Ritual Mist™
-        </mj-text>
-        <mj-text font-size="14px" color="#A68C84" padding-bottom="10px">
-          Aromatic Reset Mist
-        </mj-text>
-        <mj-text font-size="14px" line-height="1.6" padding-bottom="15px">
-          An aromatic facial mist to ground your senses and prepare your skin for deeper care.
-        </mj-text>
-        <mj-text font-size="15px" color="#666666">
-          <span style="text-decoration: line-through;">$42</span>
-          <span style="color: #A68C84; font-weight: 600; margin-left: 8px;">$33.60</span>
-          <span style="font-size: 13px; color: #999999; margin-left: 6px;">(your price)</span>
-        </mj-text>
-      </mj-column>
-    </mj-section>
-
-    <mj-section background-color="#ffffff" border-radius="12px" padding="25px 20px">
-      <mj-column>
-        <mj-text font-weight="600" font-size="18px" color="#2B2B2B" padding-bottom="8px">
-          Complete Ritual Set
-          <span style="font-size: 11px; background-color: rgba(166, 140, 132, 0.15); color: #A68C84; padding: 3px 8px; border-radius: 12px; margin-left: 8px;">BEST VALUE</span>
-        </mj-text>
-        <mj-text font-size="14px" color="#A68C84" padding-bottom="10px">
-          MindSerum™ + Ritual Mist™
-        </mj-text>
-        <mj-text font-size="14px" line-height="1.6" padding-bottom="15px">
-          The complete system to reset your skin and nervous system. Save even more with the bundle.
-        </mj-text>
-        <mj-text font-size="15px" color="#666666">
-          <span style="text-decoration: line-through;">$98</span>
-          <span style="color: #A68C84; font-weight: 600; margin-left: 8px;">$78.40</span>
-          <span style="font-size: 13px; color: #999999; margin-left: 6px;">(your price)</span>
-        </mj-text>
-      </mj-column>
-    </mj-section>
-
-    <!-- Reminder Box -->
-    <mj-section padding-top="30px" padding-bottom="10px">
-      <mj-column>
-        <mj-text align="center" background-color="#F2EDE9" padding="20px" border-radius="8px" font-size="14px" color="#666666">
-          <strong style="color: #2B2B2B;">Remember:</strong> No payment is required now. We'll notify you when products are ready to ship, and you can use your code <strong style="color: #A68C84;">FOUNDER20</strong> at checkout for 20% off.
+        <mj-text align="center" font-size="14px" line-height="1.8">
+          Skincare rituals that calm your skin and clear your mind.
+          <br/>
+          Rooted in ancient wisdom. Backed by science.
         </mj-text>
       </mj-column>
     </mj-section>
@@ -221,7 +112,7 @@
           Moya Rituals • Calm Skin. Clear Head.
         </mj-text>
         <mj-text align="center" font-size="11px" color="#C9BCB2" padding-bottom="20px">
-          You're receiving this email because you reserved your 20% launch discount at moyaskincare.com
+          You're receiving this email because you signed up for exclusive launch access at moyaskincare.com
         </mj-text>
       </mj-column>
     </mj-section>
