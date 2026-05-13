@@ -2,7 +2,28 @@
 
 Next.js 16 + Tailwind CSS + TypeScript site hosted on Netlify. Waitlist landing page for a neuro-calming skincare brand.
 
-## Quick start
+## Quickstart — making changes with AI
+
+No coding needed. Open this project in Claude Code and use these slash commands to update the site:
+
+| Command | What it does | Example |
+|---|---|---|
+| `/change` | Edit existing text, colors, or layout | `/change "Update the hero headline to 'Better Skin. Calmer Mind.'"` |
+| `/add` | Add a new section, benefit, product, or piece of content | `/add "Add a new benefit: Vegan Formula – 100% plant-based ingredients"` |
+| `/deploy` | Build and publish the site to production | `/deploy` |
+| `/dev` | Start (or stop) a local preview at localhost:3000 | `/dev` or `/dev stop` |
+
+**Tip:** Describe what you want in plain English — Claude will figure out where in the code to make the change and apply it for you.
+
+You can also use the `lp` script from a terminal if you prefer:
+
+```bash
+./lp change "Update the hero headline to 'Better Skin. Calmer Mind.'"
+./lp add "Add a new benefit: Vegan Formula – 100% plant-based ingredients"
+./lp deploy
+```
+
+## Dev start
 
 ```bash
 npm run dev        # local dev server at localhost:3000
@@ -49,18 +70,6 @@ Key exports in `lib/constants.ts`:
 - `PRODUCTS` — object with MindSerum™ and Ritual Mist™ details
 - `RITUAL_STEPS` — array of 3-step ritual guide items
 - `SOCIAL_LINKS`, `CONTACT_EMAIL` — footer links
-
-## Non-technical edits (lp agent)
-
-Team members without coding experience can use the `lp` script:
-
-```bash
-./lp change "Update the hero headline to 'Better Skin. Calmer Mind.'"
-./lp add "Add a new benefit: Vegan Formula – 100% plant-based ingredients"
-./lp deploy
-```
-
-The sub-agent definition is in `.claude/agents/landing-page-editor.md`.
 
 ## Styling
 
