@@ -15,14 +15,6 @@ No coding needed. Open this project in Claude Code and use these slash commands 
 
 **Tip:** Describe what you want in plain English — Claude will figure out where in the code to make the change and apply it for you.
 
-You can also use the `lp` script from a terminal if you prefer:
-
-```bash
-./lp change "Update the hero headline to 'Better Skin. Calmer Mind.'"
-./lp add "Add a new benefit: Vegan Formula – 100% plant-based ingredients"
-./lp deploy
-```
-
 ## Dev start
 
 ```bash
