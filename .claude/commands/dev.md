@@ -1,14 +1,27 @@
 ---
-description: Start the local development server
+description: Start or stop the local development server
 ---
 
-Start the local dev server so you can preview the landing page in your browser.
+If the user typed `/dev stop` or asked to stop the server, run this and you're done:
 
-Run:
 ```bash
-npm run dev
+lsof -ti:3000 | xargs kill -9 2>/dev/null && echo "Dev server stopped." || echo "No server running on port 3000."
 ```
 
-This starts Netlify Dev at **http://localhost:3000** — it includes the local Next.js server and the Netlify serverless functions (like the signup form).
+Otherwise, start the dev server:
 
-The server keeps running until you stop it with `Ctrl+C`.
+1. Kill anything already on port 3000:
+
+```bash
+lsof -ti:3000 | xargs kill -9 2>/dev/null; true
+```
+
+2. Start `npm run dev` as a **background task** (run_in_background: true).
+
+3. Wait for the server, then open it in the external browser:
+
+```bash
+until curl -s http://localhost:3000 > /dev/null 2>&1; do sleep 0.5; done && open http://localhost:3000
+```
+
+Tell the user the server is running at **http://localhost:3000** and that they can stop it with `/dev stop`.
